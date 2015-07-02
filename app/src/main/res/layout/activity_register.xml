@@ -1,0 +1,82 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="50dp"
+    android:padding="10dp"
+    tools:context="com.yjxs.zn.yijixingshi.RegisterActivity"
+    android:background="@drawable/background_semitransparent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/linear_username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="用户名"
+            android:textSize="18sp"
+            android:layout_weight="4"/>
+        <EditText
+            android:id="@+id/user_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="6"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linear_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="密码"
+            android:textSize="18sp"
+            android:layout_weight="4"/>
+        <EditText
+            android:id="@+id/user_password"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="6"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linear_password_confirm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="密码确认"
+            android:textSize="18sp"
+            android:layout_weight="4"/>
+        <EditText
+            android:id="@+id/user_password_confirm"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="6"
+            />
+    </LinearLayout>
+
+    <Button
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:id="@+id/button_register"
+        android:background="@drawable/round_button_selector"
+        android:text="注册"
+        android:textColor="#ffffff"
+        android:textSize="24dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="50dp"
+        />
+
+</LinearLayout>

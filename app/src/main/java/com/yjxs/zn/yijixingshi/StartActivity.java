@@ -20,7 +20,7 @@ public class StartActivity extends Activity {
         //ÔÝÍ£3Ãëºó£¬Ìø×ªµ½MainActivity
         new Handler().postDelayed(new Runnable() {
             public void run() {
-                Intent intent = new Intent(StartActivity.this, MainActivity.class);
+                Intent intent = new Intent(StartActivity.this, CheckLoginActivity.class);
                 StartActivity.this.startActivity(intent);
                 StartActivity.this.finish();
             }
