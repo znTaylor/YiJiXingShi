@@ -6,6 +6,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 
+/**
+ * 主界面
+ * author--zn
+ * 2016-07-02
+ * */
 public class MainActivity extends Activity {
 
     @Override
