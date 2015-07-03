@@ -17,7 +17,7 @@ public class StartActivity extends Activity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.start);
 
-        //ÔİÍ£3Ãëºó£¬Ìø×ªµ½MainActivity
+        //3ç§’åè·³è½¬åˆ°CheckLoginActivity
         new Handler().postDelayed(new Runnable() {
             public void run() {
                 Intent intent = new Intent(StartActivity.this, CheckLoginActivity.class);

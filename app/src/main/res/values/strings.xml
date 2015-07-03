@@ -3,7 +3,10 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string name="title_activity_check_login">CheckLoginActivity</string>
-    <string name="title_activity_register">RegisterActivity</string>
+    <string name="title_activity_check_login">检查用户</string>
+    <string name="title_activity_register">注册</string>
+    
+    <string name="register_username_null">用户名不能为空</string>
+    <string name="register_loading_check_user">正在检查用户名...</string>
 
 </resources>

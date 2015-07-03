@@ -1,8 +1,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="50dp"
-    android:padding="10dp"
+    android:layout_marginTop="50dp"
+    android:layout_marginBottom="50dp"
+    android:padding="20dp"
     tools:context="com.yjxs.zn.yijixingshi.RegisterActivity"
     android:background="@drawable/background_semitransparent"
     android:orientation="vertical">
@@ -12,38 +13,71 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="20dp">
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="用户名"
             android:textSize="18sp"
-            android:layout_weight="4"/>
+            android:layout_weight="3"/>
         <EditText
             android:id="@+id/user_name"
             android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="5"
+            android:background="@drawable/custom_editbox_style"
+            />
+        <Button
+            android:id="@+id/button_check_username"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="2"
+
+            android:background="@drawable/round_button_selector2"
+            android:text="检查"
+            android:textSize="10sp"
+            android:textColor="#000000"/>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/linear_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp">
+        <TextView
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="6"
+            android:text="邮箱"
+            android:textSize="18sp"
+            android:layout_weight="3"/>
+        <EditText
+            android:id="@+id/user_email"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="7"
+            android:background="@drawable/custom_editbox_style"
             />
     </LinearLayout>
+
 
     <LinearLayout
         android:id="@+id/linear_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="20dp">
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="密码"
             android:textSize="18sp"
-            android:layout_weight="4"/>
+            android:layout_weight="3"/>
         <EditText
             android:id="@+id/user_password"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="6"
+            android:layout_height="40dp"
+            android:layout_weight="7"
+            android:background="@drawable/custom_editbox_style"
             />
     </LinearLayout>
 
@@ -52,31 +86,61 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="20dp">
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="密码确认"
             android:textSize="18sp"
-            android:layout_weight="4"/>
+            android:layout_weight="3"/>
         <EditText
             android:id="@+id/user_password_confirm"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="6"
+            android:layout_height="40dp"
+            android:layout_weight="7"
+            android:background="@drawable/custom_editbox_style"
             />
     </LinearLayout>
 
-    <Button
-        android:layout_width="300dp"
-        android:layout_height="60dp"
-        android:id="@+id/button_register"
-        android:background="@drawable/round_button_selector"
-        android:text="注册"
-        android:textColor="#ffffff"
-        android:textSize="24dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="50dp"
-        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="30dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/round_button_normal2"
+            android:text="Tips:"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/round_button_normal2"
+            android:text="用户名：字母或数字"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/round_button_normal2"
+            android:text="密码：至少6位字母或数字"
+            />
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:id="@+id/button_register"
+            android:background="@drawable/round_button_selector"
+            android:text="注册"
+            android:textColor="#ffffff"
+            android:textSize="24dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            />
+    </RelativeLayout>
+
 
 </LinearLayout>
