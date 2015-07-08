@@ -15,19 +15,13 @@ import com.yjxs.zn.yijixingshi.util.CommonUtil;
 import com.yjxs.zn.yijixingshi.util.HttpUtil;
 import com.yjxs.zn.yijixingshi.view.LoadingDialog;
 
-import org.apache.http.client.methods.HttpPost;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
 
 
 public class RegisterActivity extends Activity {
 
-    private Button registerButton,checkUserName;
+    private Button registerButton;
 
     //form
     private EditText userName,password,email,passwordConfirm;
