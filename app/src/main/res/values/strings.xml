@@ -8,5 +8,5 @@
     
     <string name="register_username_null">用户名不能为空</string>
     <string name="register_loading_check_user">正在检查用户名...</string>
-
+    <string name="register_save_user">正在注册...</string>
 </resources>
