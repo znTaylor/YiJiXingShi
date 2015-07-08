@@ -6,11 +6,15 @@ import android.os.Message;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.yjxs.zn.yijixingshi.util.CommonUtil;
 import com.yjxs.zn.yijixingshi.view.LoadingDialog;
 
 import org.json.JSONException;
@@ -40,18 +44,29 @@ public class RegisterActivity extends Activity {
             String val = data.getString("result");
             Log.i("RegisterActivity", "请求结果为-->" + val);
             dialog.dismiss();
+
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
             // UI界面的更新等相关操作
             try {
                 JSONObject jsonResult = new JSONObject(val);
 
                 if (jsonResult.getString("result").equals("0")) { //用户名可用
-                    Toast.makeText(RegisterActivity.this,"用户名可用",Toast.LENGTH_SHORT).show();
+                    Toast toast = CommonUtil.showToast(RegisterActivity.this,"用户名可用",true);
+                    toast.show();
+
                 }
                 else if (jsonResult.getString("result").equals("1")){
-                    Toast.makeText(RegisterActivity.this,"用户名已存在",Toast.LENGTH_SHORT).show();
+                    Toast toast = CommonUtil.showToast(RegisterActivity.this,"用户名已存在",false);
+                    toast.show();
                 }
                 else {
-                    Toast.makeText(RegisterActivity.this,"用户名检查失败",Toast.LENGTH_SHORT).show();
+                    Toast toast = CommonUtil.showToast(RegisterActivity.this,"用户名检查失败",false);
+                    toast.show();
                 }
 
             } catch (JSONException e){
@@ -78,8 +93,8 @@ public class RegisterActivity extends Activity {
                 strUserName = userName.getText();
                 if (TextUtils.isEmpty(strUserName))
                 {
-                    Toast.makeText(RegisterActivity.this,getString(R.string.register_username_null),
-                            Toast.LENGTH_SHORT).show();
+                    Toast toast = CommonUtil.showToast(RegisterActivity.this,"用户名不能为空",false);
+                    toast.show();
                     return;
                 }
 
