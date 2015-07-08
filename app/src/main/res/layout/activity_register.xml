@@ -1,131 +1,61 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginTop="50dp"
-    android:layout_marginBottom="50dp"
-    android:padding="20dp"
+    android:paddingTop="50dp"
+    android:paddingLeft="50dp"
+    android:paddingRight="50dp"
+    android:paddingBottom="50dp"
     tools:context="com.yjxs.zn.yijixingshi.RegisterActivity"
-    android:background="@drawable/background_semitransparent"
+    android:background="@mipmap/register_bg"
     android:orientation="vertical">
 
-    <LinearLayout
-        android:id="@+id/linear_username"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="20dp">
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="用户名"
-            android:textSize="18sp"
-            android:layout_weight="3"/>
-        <EditText
-            android:id="@+id/user_name"
-            android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:layout_weight="5"
-            android:background="@drawable/custom_editbox_style"
-            />
-        <Button
-            android:id="@+id/button_check_username"
-            android:layout_width="0dp"
-            android:layout_height="30dp"
-            android:layout_weight="2"
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@mipmap/register_head"
+        android:layout_gravity="center"
+        />
 
-            android:background="@drawable/round_button_selector2"
-            android:text="检查"
-            android:textSize="10sp"
-            android:textColor="#000000"/>
-    </LinearLayout>
-    <LinearLayout
-        android:id="@+id/linear_email"
+    <EditText
+        android:id="@+id/user_name"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="20dp">
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="邮箱"
-            android:textSize="18sp"
-            android:layout_weight="3"/>
-        <EditText
-            android:id="@+id/user_email"
-            android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:layout_weight="7"
-            android:background="@drawable/custom_editbox_style"
-            />
-    </LinearLayout>
+        android:layout_height="40dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/custom_editbox_style"
+        android:hint="用户名"
+        />
 
 
-    <LinearLayout
-        android:id="@+id/linear_password"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="20dp">
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="密码"
-            android:textSize="18sp"
-            android:layout_weight="3"/>
-        <EditText
-            android:id="@+id/user_password"
-            android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:layout_weight="7"
-            android:background="@drawable/custom_editbox_style"
-            />
-    </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/linear_password_confirm"
+    <EditText
+        android:id="@+id/user_email"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="20dp">
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="密码确认"
-            android:textSize="18sp"
-            android:layout_weight="3"/>
-        <EditText
-            android:id="@+id/user_password_confirm"
-            android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:layout_weight="7"
-            android:background="@drawable/custom_editbox_style"
-            />
-    </LinearLayout>
+        android:layout_height="40dp"
+        android:background="@drawable/custom_editbox_style"
+        android:hint="邮箱"
+        android:layout_marginTop="10dp"
+        />
 
-    <LinearLayout
+
+    <EditText
+        android:id="@+id/user_password"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginTop="30dp">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/round_button_normal2"
-            android:text="Tips:"
-            />
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/round_button_normal2"
-            android:text="用户名：字母或数字"
-            />
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/round_button_normal2"
-            android:text="密码：至少6位字母或数字"
-            />
-    </LinearLayout>
+        android:layout_height="40dp"
+        android:background="@drawable/custom_editbox_style"
+        android:hint="密码"
+        android:layout_marginTop="10dp"
+        />
+
+    <EditText
+        android:id="@+id/user_password_confirm"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/custom_editbox_style"
+        android:hint="密码确认"
+        android:layout_marginTop="10dp"
+        />
+
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">

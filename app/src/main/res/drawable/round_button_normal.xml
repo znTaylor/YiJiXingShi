@@ -3,7 +3,7 @@
     android:shape="rectangle">
 
     <!-- 填充的颜色 -->
-    <solid android:color="#006600" />
+    <solid android:color="#00006600" />
     <!-- 设置按钮的四个角为弧形 -->
     <!-- android:radius 弧形的半径 -->
     <corners android:radius="10dp" />
@@ -15,4 +15,5 @@
         android:right="10dp"
         android:bottom="10dp"
         />
+    <stroke android:width="3dip" android:color="#6699ff" />
 </shape>

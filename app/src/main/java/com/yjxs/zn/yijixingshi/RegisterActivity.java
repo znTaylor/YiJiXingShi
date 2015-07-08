@@ -56,8 +56,8 @@ public class RegisterActivity extends Activity {
                     JSONObject jsonResult = new JSONObject(val);
 
                     if (jsonResult.getString("result").equals("0")) { //用户名可用
-                        Toast toast = CommonUtil.showToast(RegisterActivity.this, "用户名可用", true);
-                        toast.show();
+                       // Toast toast = CommonUtil.showToast(RegisterActivity.this, "用户名可用", true);
+                       // toast.show();
 
                     } else if (jsonResult.getString("result").equals("1")) {
                         Toast toast = CommonUtil.showToast(RegisterActivity.this, "用户名已存在", false);
@@ -84,29 +84,6 @@ public class RegisterActivity extends Activity {
 
         initControls();
 
-        //检查用户名
-        checkUserName.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                strUserName = userName.getText();
-                if (TextUtils.isEmpty(strUserName))
-                {
-                    Toast toast = CommonUtil.showToast(RegisterActivity.this,"用户名不能为空",false);
-                    toast.show();
-                    return;
-                }
-
-
-                dialog = new LoadingDialog(RegisterActivity.this,
-                        R.style.loading_dialog,getString(R.string.register_loading_check_user));
-                dialog.show();
-
-                checkUserName();
-
-            }
-        });
-
         // 注册
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -132,7 +109,7 @@ public class RegisterActivity extends Activity {
                 }
                 strPasswordConfirm = passwordConfirm.getText();
                 if (TextUtils.isEmpty(strPasswordConfirm)){
-                    Toast toast = CommonUtil.showToast(RegisterActivity.this,"密码输入不一致",false);
+                    Toast toast = CommonUtil.showToast(RegisterActivity.this,"请再输入一次密码",false);
                     toast.show();
                     return;
                 }
@@ -144,7 +121,7 @@ public class RegisterActivity extends Activity {
                     return;
                 }
                 //检查密码的一致性
-                if (!strPassword.equals(strPasswordConfirm)){
+                if (!strPassword.toString().equals(strPasswordConfirm.toString())){
                     Toast toast = CommonUtil.showToast(RegisterActivity.this,"密码输入不一致",false);
                     toast.show();
                     return;
@@ -153,6 +130,9 @@ public class RegisterActivity extends Activity {
                 dialog = new LoadingDialog(RegisterActivity.this,
                         R.style.loading_dialog,getString(R.string.register_save_user));
                 dialog.show();
+
+                //检查用户名
+                checkUserName();
                 //POST方式注册
                 saveRegisterUser();
 
@@ -163,7 +143,6 @@ public class RegisterActivity extends Activity {
 
     private void initControls()
     {
-        checkUserName = (Button) findViewById(R.id.button_check_username);
         registerButton = (Button) findViewById(R.id.button_register);
 
         userName = (EditText) findViewById(R.id.user_name);
@@ -197,16 +176,8 @@ public class RegisterActivity extends Activity {
 
 
     private void saveRegisterUser(){
-        Runnable networkTask = new Runnable() {
-            @Override
-            public void run() {
-                String strUrl = "http://120.27.46.194/ZnConsole/business/register_user.php";
-
-
-            }
-        };
-
-        new Thread(networkTask).start();
+        Toast toast = CommonUtil.showToast(RegisterActivity.this,"正在注册",false);
+        toast.show();
     }
 
 }
