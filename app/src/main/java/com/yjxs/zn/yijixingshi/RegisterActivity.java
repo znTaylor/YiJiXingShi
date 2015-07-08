@@ -3,18 +3,18 @@ package com.yjxs.zn.yijixingshi;
 import android.app.Activity;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.yjxs.zn.yijixingshi.view.LoadingDialog;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -39,13 +39,28 @@ public class RegisterActivity extends Activity {
             Bundle data = msg.getData();
             String val = data.getString("result");
             Log.i("RegisterActivity", "请求结果为-->" + val);
-
-            // UI界面的更新等相关操作
-            if (val.equals("ok")){
-                checkUserName.setEnabled(false);
-            }
-            Toast.makeText(RegisterActivity.this,val,Toast.LENGTH_SHORT).show();
             dialog.dismiss();
+            // UI界面的更新等相关操作
+            try {
+                JSONObject jsonResult = new JSONObject(val);
+
+                if (jsonResult.getString("result").equals("0")) { //用户名可用
+                    Toast.makeText(RegisterActivity.this,"用户名可用",Toast.LENGTH_SHORT).show();
+                }
+                else if (jsonResult.getString("result").equals("1")){
+                    Toast.makeText(RegisterActivity.this,"用户名已存在",Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    Toast.makeText(RegisterActivity.this,"用户名检查失败",Toast.LENGTH_SHORT).show();
+                }
+
+            } catch (JSONException e){
+                e.printStackTrace();
+            }
+
+
+
+
         }
     };
 
