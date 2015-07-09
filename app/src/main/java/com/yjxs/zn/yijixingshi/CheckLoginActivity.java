@@ -12,7 +12,7 @@ import android.widget.Button;
 
 public class CheckLoginActivity extends Activity {
 
-    private Button headerRegister;
+    private Button headerRegister,headerLogin;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +27,16 @@ public class CheckLoginActivity extends Activity {
                 CheckLoginActivity.this.finish();
             }
         });
+        headerLogin = (Button) this.findViewById(R.id.button_login);
+        headerLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent toRegister = new Intent(CheckLoginActivity.this,LoginActivity.class);
+                startActivity(toRegister);
+                CheckLoginActivity.this.finish();
+            }
+        });
+
 
     }
 

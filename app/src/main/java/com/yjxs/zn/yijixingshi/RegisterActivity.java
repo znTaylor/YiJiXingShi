@@ -64,7 +64,7 @@ public class RegisterActivity extends Activity {
                         Toast toast = CommonUtil.showToast(RegisterActivity.this, "纳尼？用户名已存在！", false);
                         toast.show();
                     } else {
-                        Toast toast = CommonUtil.showToast(RegisterActivity.this, "太不幸了，注册失败", false);
+                        Toast toast = CommonUtil.showToast(RegisterActivity.this, jsonResult.getString("result"), false);
                         toast.show();
                     }
 
