@@ -20,7 +20,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 
-public class RegisterActivity extends Activity {
+public class RegisterActivity extends BaseActivity {
 
     private Button registerButton;
 

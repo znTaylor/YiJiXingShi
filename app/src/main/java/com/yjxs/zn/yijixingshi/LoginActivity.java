@@ -20,7 +20,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 
-public class LoginActivity extends Activity implements View.OnClickListener{
+public class LoginActivity extends BaseActivity implements View.OnClickListener{
 
     private Button btnLogin;
     private EditText username,password;

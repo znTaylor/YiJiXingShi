@@ -35,6 +35,10 @@
             android:name=".LoginActivity"
             android:label="登录" >
         </activity>
+        <activity
+            android:name=".BaseActivity"
+            android:label="@string/title_activity_base" >
+        </activity>
     </application>
 
 </manifest>

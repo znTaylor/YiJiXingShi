@@ -1,13 +1,12 @@
 package com.yjxs.zn.yijixingshi;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.Window;
 
 
-public class StartActivity extends Activity {
+public class StartActivity extends BaseActivity {
 
 
     private static final int START_DELAY_SECONDS = 3000;
