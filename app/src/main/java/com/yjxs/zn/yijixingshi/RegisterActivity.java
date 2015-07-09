@@ -1,6 +1,7 @@
 package com.yjxs.zn.yijixingshi;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Handler;
 import android.os.Message;
 import android.os.Bundle;
@@ -33,10 +34,12 @@ public class RegisterActivity extends Activity {
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
-            if (msg.what == 100) {
+
+            if (msg.what == 101) {
                 Bundle data = msg.getData();
                 String val = data.getString("result");
                 Log.i("RegisterActivity", "请求结果为-->" + val);
+
                 dialog.dismiss();
 
                 try {
@@ -49,15 +52,19 @@ public class RegisterActivity extends Activity {
                 try {
                     JSONObject jsonResult = new JSONObject(val);
 
-                    if (jsonResult.getString("result").equals("0")) { //用户名可用
-                       // Toast toast = CommonUtil.showToast(RegisterActivity.this, "用户名可用", true);
-                       // toast.show();
+                    if (jsonResult.getString("result").equals("register successfully")) {
+                         Toast toast = CommonUtil.showToast(RegisterActivity.this, "注册成功,赶快管理你的计划吧！", true);
+                         toast.show();
 
-                    } else if (jsonResult.getString("result").equals("1")) {
-                        Toast toast = CommonUtil.showToast(RegisterActivity.this, "用户名已存在", false);
+                         Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
+                         RegisterActivity.this.startActivity(intent);
+                         RegisterActivity.this.finish();
+
+                    } else if (jsonResult.getString("result").equals("user exists")) {
+                        Toast toast = CommonUtil.showToast(RegisterActivity.this, "纳尼？用户名已存在！", false);
                         toast.show();
                     } else {
-                        Toast toast = CommonUtil.showToast(RegisterActivity.this, "用户名检查失败", false);
+                        Toast toast = CommonUtil.showToast(RegisterActivity.this, "太不幸了，注册失败", false);
                         toast.show();
                     }
 
@@ -66,8 +73,7 @@ public class RegisterActivity extends Activity {
                 }
 
 
-            } //end of msg.what == 100
-
+            }
         }
     };
 
@@ -125,8 +131,6 @@ public class RegisterActivity extends Activity {
                         R.style.loading_dialog,getString(R.string.register_save_user));
                 dialog.show();
 
-                //检查用户名
-                checkUserName();
                 //POST方式注册
                 saveRegisterUser();
 
@@ -145,17 +149,20 @@ public class RegisterActivity extends Activity {
         email = (EditText) findViewById(R.id.user_email);
     }
 
-    private void checkUserName()
-    {
+
+    private void saveRegisterUser(){
+
         Runnable networkTask = new Runnable() {
             @Override
             public void run() {
-                String strUrl = "http://120.27.46.194/ZnConsole/business/check_username.php";
+                String strUrl = "http://120.27.46.194/ZnConsole/business/register_user.php";
                 String params = "username=" + strUserName;
-                String response = HttpUtil.sendHttpGet(strUrl, params);
+                params += "&password=" + strPassword;
+                params += "&email=" + strEmail;
+                String response = HttpUtil.sendHttpPost(strUrl, params);
 
                 Message msg = new Message();
-                msg.what = 100;
+                msg.what = 101;
                 Bundle data = new Bundle();
                 data.putString("result", response);
                 msg.setData(data);
@@ -166,12 +173,6 @@ public class RegisterActivity extends Activity {
         };
 
         new Thread(networkTask).start();
-    }
-
-
-    private void saveRegisterUser(){
-        Toast toast = CommonUtil.showToast(RegisterActivity.this,"正在注册",false);
-        toast.show();
     }
 
 }
