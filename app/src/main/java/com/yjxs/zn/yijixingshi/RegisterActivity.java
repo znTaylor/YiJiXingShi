@@ -57,6 +57,7 @@ public class RegisterActivity extends BaseActivity {
                          toast.show();
 
                          Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
+                         intent.putExtra("user",strUserName);
                          RegisterActivity.this.startActivity(intent);
                          RegisterActivity.this.finish();
 
