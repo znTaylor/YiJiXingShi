@@ -38,7 +38,7 @@
             android:background="@drawable/round_button_selector"
             android:text="登录"
             android:textColor="#ffffff"
-            android:textSize="24dp"
+            android:textSize="24sp"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             />
