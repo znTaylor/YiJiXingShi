@@ -12,4 +12,5 @@
     <string name="title_activity_login">LoginActivity</string>
     <string name="login_checking">正在登录...</string>
     <string name="title_activity_base">BaseActivity</string>
+    <string name="title_activity_year_plan_making">YearPlanMakingActivity</string>
 </resources>

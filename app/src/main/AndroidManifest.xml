@@ -39,6 +39,10 @@
             android:name=".BaseActivity"
             android:label="@string/title_activity_base" >
         </activity>
+        <activity
+            android:name=".YearPlanMakingActivity"
+            android:label="@string/title_activity_year_plan_making" >
+        </activity>
     </application>
 
 </manifest>
