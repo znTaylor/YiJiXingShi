@@ -42,7 +42,7 @@ public class LoadingDialog extends Dialog
         super.onCreate(savedInstanceState);
 
         LayoutInflater inflater = LayoutInflater.from(mContext);
-        View v = inflater.inflate(R.layout.layout_loading_dialog, null);// 得到加载view
+        View v = inflater.inflate(R.layout.layout_loading_dialog, null);
         ImageView loadingImage = (ImageView) v.findViewById(R.id.loading_img);
         Animation animation = AnimationUtils.loadAnimation(mContext, R.anim.loading_animation);
         loadingImage.setAnimation(animation);

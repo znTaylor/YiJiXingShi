@@ -48,7 +48,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener{
                 try {
                     JSONObject jsonResult = new JSONObject(val);
                     if (jsonResult.getString("result").equals("success")) {
-                        Toast toast = CommonUtil.showToast(LoginActivity.this, "登录成功,赶快管理你的计划吧！", true);
+                        Toast toast = CommonUtil.showToast(LoginActivity.this, "登录成功!", true);
                         toast.show();
 
                         Intent intent = new Intent(LoginActivity.this, MainActivity.class);

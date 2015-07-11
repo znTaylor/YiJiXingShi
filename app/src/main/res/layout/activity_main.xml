@@ -40,7 +40,7 @@
             android:layout_height="40dp"
             android:layout_alignParentRight="true"
             android:layout_centerInParent="true"
-
+            android:id="@+id/button_loginout"
             android:text="退出登录"
             android:textSize="12sp"
             android:textColor="#ffffff"
@@ -52,7 +52,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="7"
+        android:layout_weight="9"
         android:orientation="vertical"
         android:background="#cccccc"
         android:paddingTop="30dp"
@@ -74,7 +74,7 @@
             <TableLayout
                 android:id="@+id/table_plan"
                 android:layout_below="@id/show_plan_title"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="25dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <TableRow>
@@ -290,47 +290,47 @@
                 </TableRow>
             </TableLayout>
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_alignParentBottom="true">
-                <Button
-                    android:layout_width="150dp"
-                    android:layout_height="60dp"
-                    android:id="@+id/button_show_plan"
-                    android:background="@drawable/round_button_selector"
-                    android:text="查看我的计划"
-                    android:textColor="#ffffff"
-                    android:textSize="20sp"
-                    android:layout_alignParentBottom="true"
-                    android:layout_centerHorizontal="true"
-                    />
-                <Button
-                    android:layout_width="150dp"
-                    android:layout_height="60dp"
-                    android:id="@+id/button_make_plan"
-                    android:background="@drawable/round_button_selector"
-                    android:text="制定新计划"
-                    android:textColor="#ffffff"
-                    android:textSize="20sp"
-                    android:layout_alignParentBottom="true"
-                    android:layout_centerHorizontal="true"
-                    />
+                android:layout_alignParentBottom="true"
+                android:layout_centerInParent="true"
+                >
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <Button
+                        android:layout_width="120dp"
+                        android:layout_height="50dp"
+                        android:id="@+id/button_show_plan"
+                        android:background="@drawable/round_button_selector"
+                        android:text="查看我的计划"
+                        android:textColor="#ffffff"
+                        android:textSize="14sp"
+                        android:layout_marginBottom="20dp"
+
+                        />
+                    <Button
+                        android:layout_width="120dp"
+                        android:layout_height="50dp"
+                        android:id="@+id/button_make_plan"
+                        android:background="@drawable/round_button_selector"
+                        android:text="制定新的计划"
+                        android:textColor="#ffffff"
+                        android:textSize="14sp"
+                        android:layout_marginBottom="50dp"
+
+                        />
+
+                </LinearLayout>
+
 
             </LinearLayout>
 
 
 
         </RelativeLayout>
-
-
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="2"
-        android:orientation="vertical"
-        >
 
 
     </LinearLayout>
