@@ -35,10 +35,42 @@
         android:layout_weight="9"
         android:orientation="vertical"
         android:background="#cccccc"
-        android:paddingTop="30dp"
+        android:paddingTop="10dp"
         android:paddingLeft="20dp"
+        android:paddingRight="20dp"
         >
 
+        <EditText
+            android:id="@+id/year_plan_title"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/custom_editbox_style"
+            android:hint="计划标题"
+            />
+
+
+
+        <EditText
+            android:id="@+id/year_plan_content"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/custom_editbox_style"
+            android:hint="计划内容"
+            android:layout_marginTop="10dp"
+            />
+
+        <Button
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:id="@+id/add_yearplan_detail"
+            android:background="@drawable/round_button_selector"
+            android:text="登录"
+            android:textColor="#ffffff"
+            android:textSize="24sp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            />
 
     </LinearLayout>
 
