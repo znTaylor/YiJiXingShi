@@ -5,13 +5,19 @@
     android:orientation="vertical"
     >
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:orientation="horizontal"
         android:background="#6699ff"
         >
+        <ImageView
+            android:id="@+id/year_plan_back"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:background="@mipmap/back"
+            android:layout_gravity="center_vertical"/>
         <TextView
             android:id="@+id/text_year_plan"
             android:layout_width="match_parent"
@@ -22,7 +28,7 @@
             android:textSize="24sp"
             android:textStyle="bold"
             />
-    </LinearLayout>
+    </RelativeLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"

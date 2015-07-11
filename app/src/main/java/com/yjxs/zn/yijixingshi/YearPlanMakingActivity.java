@@ -2,14 +2,14 @@ package com.yjxs.zn.yijixingshi;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
-
-import org.w3c.dom.Text;
 
 
 public class YearPlanMakingActivity extends BaseActivity {
 
     private TextView year_title;
+    private ImageView year_back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +21,14 @@ public class YearPlanMakingActivity extends BaseActivity {
 
     private void initControls(){
         year_title = (TextView) this.findViewById(R.id.text_year_plan);
+        year_back = (ImageView) this.findViewById(R.id.year_plan_back);
         year_title.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+        year_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 onBackPressed();

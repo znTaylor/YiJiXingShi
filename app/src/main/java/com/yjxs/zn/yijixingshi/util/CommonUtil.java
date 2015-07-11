@@ -1,6 +1,7 @@
 package com.yjxs.zn.yijixingshi.util;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageView;
@@ -15,7 +16,7 @@ import java.util.regex.Pattern;
 
 public class CommonUtil {
 
-    public static Toast showToast(Context context,String content,boolean status){
+    public static Toast showToast(Context context, String content, boolean status) {
         Toast toast = new Toast(context);
         toast.setDuration(Toast.LENGTH_SHORT);
         toast.setGravity(Gravity.CENTER, 0, 0);
@@ -33,8 +34,7 @@ public class CommonUtil {
         return toast;
     }
 
-    public static boolean checkEmail(String email)
-    {
+    public static boolean checkEmail(String email) {
         boolean tag = true;
         final String pattern1 = "^([a-z0-9A-Z]+[-|\\.]?)+[a-z0-9A-Z]@([a-z0-9A-Z]+(-[a-z0-9A-Z]+)?\\.)+[a-zA-Z]{2,}$";
         final Pattern pattern = Pattern.compile(pattern1);
@@ -45,4 +45,15 @@ public class CommonUtil {
         return tag;
     }
 
+    public static void WriteSharedPreferences(Context context, String key, String value) {
+        SharedPreferences.Editor editor = context.getSharedPreferences("yijixingshi", context.MODE_PRIVATE).edit();
+        editor.putString(key, value);
+        editor.commit();
+    }
+
+
+    public static String ReadSharedPreferences(Context context, String key) {
+        SharedPreferences preference = context.getSharedPreferences("yijixingshi", context.MODE_PRIVATE);
+        return preference.getString(key, "");
+    }
 }

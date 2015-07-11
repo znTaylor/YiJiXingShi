@@ -2,6 +2,7 @@ package com.yjxs.zn.yijixingshi;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.yjxs.zn.yijixingshi.listener.OnPlanTypeSelectedListener;
+import com.yjxs.zn.yijixingshi.util.CommonUtil;
 import com.yjxs.zn.yijixingshi.view.PlanTypeDialog;
 
 /**
@@ -26,6 +28,7 @@ public class MainActivity extends BaseActivity{
 
     private long exitTime = 0;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,10 +37,6 @@ public class MainActivity extends BaseActivity{
         initData();
 
     }
-
-
-
-
 
     /**
      * 初始化控件
@@ -53,14 +52,15 @@ public class MainActivity extends BaseActivity{
      * 初始化数据
      * */
     private void initData(){
-        Intent intent = this.getIntent();
-        String user = intent.getStringExtra("user");
+        String user = CommonUtil.ReadSharedPreferences(MainActivity.this,"login_user");
         showUser.setText(user);
 
         //退出登录
         logOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                CommonUtil.WriteSharedPreferences(MainActivity.this,"is_login","no");
+                CommonUtil.WriteSharedPreferences(MainActivity.this,"login_user","");
                 //跳转到登录界面
                 Intent loginIntent = new Intent(MainActivity.this, LoginActivity.class);
                 startActivity(loginIntent);
@@ -122,5 +122,12 @@ public class MainActivity extends BaseActivity{
             finish();
             System.exit(0);
         }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        String user = CommonUtil.ReadSharedPreferences(MainActivity.this,"login_user");
+        showUser.setText(user);
     }
 }

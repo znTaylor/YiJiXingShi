@@ -19,7 +19,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#ffffff"
-            android:text="成功属于有计划的人，欢迎："
+            android:text="欢迎："
             android:gravity="center"
             android:layout_alignParentLeft="true"
             android:layout_centerInParent="true"

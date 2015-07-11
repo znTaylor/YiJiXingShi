@@ -51,8 +51,13 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener{
                         Toast toast = CommonUtil.showToast(LoginActivity.this, "登录成功!", true);
                         toast.show();
 
+                        //保存用户的登录信息
+                        CommonUtil.WriteSharedPreferences(LoginActivity.this,
+                                "login_user",strUserName);
+                        CommonUtil.WriteSharedPreferences(LoginActivity.this,
+                                "is_login","yes");
+
                         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                        intent.putExtra("user",strUserName);
                         LoginActivity.this.startActivity(intent);
                         LoginActivity.this.finish();
 
