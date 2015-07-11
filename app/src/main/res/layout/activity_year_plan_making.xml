@@ -32,7 +32,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="9"
+        android:layout_weight="8"
         android:orientation="vertical"
         android:background="#cccccc"
         android:paddingTop="10dp"
@@ -60,18 +60,42 @@
             android:layout_marginTop="10dp"
             />
 
-        <Button
-            android:layout_width="200dp"
-            android:layout_height="60dp"
-            android:id="@+id/add_yearplan_detail"
-            android:background="@drawable/round_button_selector"
-            android:text="登录"
-            android:textColor="#ffffff"
-            android:textSize="24sp"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="年计划详情"
+            android:layout_marginTop="15dp"
+            android:textSize="18sp"
+            android:background="#6699ff"
+            android:gravity="center"
             />
 
+        <ListView
+            android:id="@+id/list_year_detail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </ListView>
+
     </LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:layout_gravity="center_horizontal"
+        >
+        <Button
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:id="@+id/button_save"
+            android:background="@drawable/round_button_selector"
+            android:text="保存"
+            android:textColor="#ffffff"
+            android:textSize="18sp"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="5dp"
+            />
+        </RelativeLayout>
 
 </LinearLayout>
