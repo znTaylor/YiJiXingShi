@@ -60,22 +60,54 @@
             android:layout_marginTop="10dp"
             />
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="15dp">
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:text="年计划详情"
-            android:layout_marginTop="15dp"
             android:textSize="18sp"
             android:background="#6699ff"
-            android:gravity="center"
+            android:gravity="center_vertical"
             />
+            <Button
+                android:id="@+id/year_month_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="9-12"
+                android:background="@drawable/round_button_selector"
+                android:textColor="#ffffff"
 
-        <ListView
-            android:id="@+id/list_year_detail"
+                />
+            <Button
+                android:id="@+id/year_month_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="5-8"
+                android:layout_toLeftOf="@id/year_month_3"
+                android:background="@drawable/round_button_selector"
+                android:textColor="#ffffff"
+                />
+            <Button
+                android:id="@+id/year_month_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1-4"
+                android:layout_toLeftOf="@id/year_month_2"
+                android:background="@drawable/round_button_selector"
+                android:textColor="#ffffff"
+                />
+        </RelativeLayout>
+        <FrameLayout
+            android:id="@+id/year_plan_detail_frame"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-
-        </ListView>
+        </FrameLayout>
 
     </LinearLayout>
     <RelativeLayout

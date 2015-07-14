@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp">
+        <TextView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/rounded_image_view_bg"
+            android:text="5"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:textColor="#ffffff"
+            />
+        <EditText
+            android:id="@+id/yea_plan_month_5"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"
+            android:background="@drawable/custom_editbox_style"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp">
+        <TextView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/rounded_image_view_bg"
+            android:text="6"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:textColor="#ffffff"
+            />
+        <EditText
+            android:id="@+id/yea_plan_month_6"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"
+            android:background="@drawable/custom_editbox_style"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp">
+        <TextView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/rounded_image_view_bg"
+            android:text="7"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:textColor="#ffffff"
+            />
+        <EditText
+            android:id="@+id/yea_plan_month_7"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"
+            android:background="@drawable/custom_editbox_style"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp">
+        <TextView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/rounded_image_view_bg"
+            android:text="8"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:textColor="#ffffff"
+            />
+        <EditText
+            android:id="@+id/yea_plan_month_8"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"
+            android:background="@drawable/custom_editbox_style"/>
+
+    </LinearLayout>
+
+</LinearLayout>
