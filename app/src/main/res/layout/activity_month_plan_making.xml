@@ -1,0 +1,196 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.yjxs.zn.yijixingshi.YearPlanMakingActivity"
+    android:orientation="vertical"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:background="#6699ff"
+        >
+        <ImageView
+            android:id="@+id/month_plan_back"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:background="@mipmap/back"
+            android:layout_gravity="center_vertical"/>
+        <TextView
+            android:id="@+id/text_month_plan"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="月计划"
+            android:textColor="#ffffff"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            />
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="8"
+        android:orientation="vertical"
+        android:background="#cccccc"
+        android:paddingTop="10dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        >
+
+        <EditText
+            android:id="@+id/month_plan_title"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/custom_editbox_style"
+            android:hint="计划标题"
+            />
+
+
+
+        <EditText
+            android:id="@+id/month_plan_content"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/custom_editbox_style"
+            android:hint="计划内容"
+            android:layout_marginTop="10dp"
+            />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="15dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="月计划详情"
+            android:textSize="18sp"
+            android:background="#6699ff"
+            android:gravity="center_vertical"
+            />
+
+        </RelativeLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
+                <TextView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/rounded_image_view_bg"
+                    android:text="1"
+                    android:gravity="center"
+                    android:textSize="20sp"
+                    android:textColor="#ffffff"
+                    />
+                <EditText
+                    android:id="@+id/month_plan_week_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="15dp"
+                    android:background="@drawable/custom_editbox_style"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
+                <TextView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/rounded_image_view_bg"
+                    android:text="2"
+                    android:gravity="center"
+                    android:textSize="20sp"
+                    android:textColor="#ffffff"
+                    />
+                <EditText
+                    android:id="@+id/month_plan_week_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="15dp"
+                    android:background="@drawable/custom_editbox_style"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
+                <TextView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/rounded_image_view_bg"
+                    android:text="3"
+                    android:gravity="center"
+                    android:textSize="20sp"
+                    android:textColor="#ffffff"
+                    />
+                <EditText
+                    android:id="@+id/month_plan_week_3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="15dp"
+                    android:background="@drawable/custom_editbox_style"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
+                <TextView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/rounded_image_view_bg"
+                    android:text="4"
+                    android:gravity="center"
+                    android:textSize="20sp"
+                    android:textColor="#ffffff"
+                    />
+                <EditText
+                    android:id="@+id/month_plan_week_4"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="15dp"
+                    android:background="@drawable/custom_editbox_style"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:layout_gravity="center_horizontal"
+        >
+        <Button
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:id="@+id/button_save"
+            android:background="@drawable/round_button_selector"
+            android:text="保存"
+            android:textColor="#ffffff"
+            android:textSize="18sp"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="5dp"
+            />
+        </RelativeLayout>
+
+</LinearLayout>
