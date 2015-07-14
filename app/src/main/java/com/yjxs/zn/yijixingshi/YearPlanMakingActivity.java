@@ -42,6 +42,11 @@ public class YearPlanMakingActivity extends BaseActivity {
         yearPlanTwoFragment = new YearPlanMonthDetailTwoFragment();
         yearPlanThreeFragment = new YearPlanMonthDetailThreeFragment();
 
+        //初始fragment 1-4
+        fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.year_plan_detail_frame,yearPlanOneFragment);
+        fragmentTransaction.commit();
+
         year_title = (TextView) this.findViewById(R.id.text_year_plan);
         year_back = (ImageView) this.findViewById(R.id.year_plan_back);
         year_title.setOnClickListener(new View.OnClickListener() {
