@@ -24,15 +24,15 @@ public class YearPlanMonthDetailOneFragment extends Fragment {
 
     private String editDisabledText = "当前月份不能编辑计划";
 
-    private  int curMonth;
+    private  int curMonth,currDay;
 
     //监听器
-    private MonthPlanEditCompletedListener monthPlanEditCompletedListener;
-    public MonthPlanEditCompletedListener getMonthPlanEditCompletedListener(){
-        return monthPlanEditCompletedListener;
+    private MonthPlanEditCompletedListenerOne monthPlanEditCompletedListenerOne;
+    public MonthPlanEditCompletedListenerOne getMonthPlanEditCompletedListenerOne(){
+        return monthPlanEditCompletedListenerOne;
     }
-    public void setMonthPlanEditCompletedListener(MonthPlanEditCompletedListener monthPlanEditCompletedListener){
-        this.monthPlanEditCompletedListener = monthPlanEditCompletedListener;
+    public void setMonthPlanEditCompletedListenerOne(MonthPlanEditCompletedListenerOne monthPlanEditCompletedListenerOne){
+        this.monthPlanEditCompletedListenerOne = monthPlanEditCompletedListenerOne;
     }
 
     public static YearPlanMonthDetailOneFragment newInstance() {
@@ -71,8 +71,9 @@ public class YearPlanMonthDetailOneFragment extends Fragment {
         //根据当前月份判断某月份是否可以制定计划，如果已经过了该月份，则该月份不能制定计划
         Calendar calendar = Calendar.getInstance();
         curMonth = calendar.get(Calendar.MONTH) + 1;
+        currDay = calendar.get(Calendar.DAY_OF_MONTH);
 
-        if (curMonth >=4){
+        if (curMonth >4){
             planJanuary.setEnabled(false);
             planJanuary.setHint(editDisabledText);
             planFebruary.setEnabled(false);
@@ -81,36 +82,54 @@ public class YearPlanMonthDetailOneFragment extends Fragment {
             planMarch.setHint(editDisabledText);
             planApril.setEnabled(false);
             planApril.setHint(editDisabledText);
-        } else if (curMonth == 3 ){
+        } else if (curMonth == 4 ){
             planJanuary.setEnabled(false);
             planJanuary.setHint(editDisabledText);
             planFebruary.setEnabled(false);
             planFebruary.setHint(editDisabledText);
             planMarch.setEnabled(false);
             planMarch.setHint(editDisabledText);
-        } else if (curMonth == 2){
+
+            if (currDay > 5){
+                planApril.setEnabled(false);
+                planApril.setHint(editDisabledText);
+            }
+        }  else if (curMonth == 3 ){
             planJanuary.setEnabled(false);
             planJanuary.setHint(editDisabledText);
             planFebruary.setEnabled(false);
             planFebruary.setHint(editDisabledText);
-        } else if (curMonth == 1){
+            if (currDay > 5) {
+                planMarch.setEnabled(false);
+                planMarch.setHint(editDisabledText);
+            }
+        } else if (curMonth == 2){
             planJanuary.setEnabled(false);
             planJanuary.setHint(editDisabledText);
+            if (currDay > 5) {
+                planFebruary.setEnabled(false);
+                planFebruary.setHint(editDisabledText);
+            }
+        } else if (curMonth == 1){
+            if (currDay > 5) {
+                planJanuary.setEnabled(false);
+                planJanuary.setHint(editDisabledText);
+            }
         }
 
         savePlanOne.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (monthPlanEditCompletedListener != null) {
+                if (monthPlanEditCompletedListenerOne != null) {
                     if (curMonth >= 4) {
-                        monthPlanEditCompletedListener.onCompleted("","","","");
+                        monthPlanEditCompletedListenerOne.onCompleted("","","","");
                     } else if (curMonth == 3){
-                        monthPlanEditCompletedListener.onCompleted("","","",planApril.getText().toString());
+                        monthPlanEditCompletedListenerOne.onCompleted("","","",planApril.getText().toString());
                     } else if (curMonth == 2){
-                        monthPlanEditCompletedListener.onCompleted("","",
+                        monthPlanEditCompletedListenerOne.onCompleted("","",
                                 planMarch.getText().toString(),planApril.getText().toString());
                     } else if (curMonth == 1){
-                        monthPlanEditCompletedListener.onCompleted(planJanuary.getText().toString()
+                        monthPlanEditCompletedListenerOne.onCompleted(planJanuary.getText().toString()
                                 ,planFebruary.getText().toString(),
                                 planMarch.getText().toString(),planApril.getText().toString());
                     }
@@ -125,7 +144,7 @@ public class YearPlanMonthDetailOneFragment extends Fragment {
      * 当完成1-4月份计划编辑，点击ok按钮时，触发
      *
      * */
-    public interface MonthPlanEditCompletedListener{
+    public interface MonthPlanEditCompletedListenerOne{
         /**
          * @param p1
          *     1月份计划
