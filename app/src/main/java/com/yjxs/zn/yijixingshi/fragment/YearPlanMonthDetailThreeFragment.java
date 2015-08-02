@@ -3,6 +3,7 @@ package com.yjxs.zn.yijixingshi.fragment;
 
 import android.app.Fragment;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,11 +11,14 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.yjxs.zn.yijixingshi.R;
+import com.yjxs.zn.yijixingshi.YearPlanMakingActivity;
 
 import java.util.Calendar;
 
 
 public class YearPlanMonthDetailThreeFragment extends Fragment {
+
+    public static String TAG = "YearPlanMonthDetailThreeFragment";
 
     private EditText planSeptember,planOctober,plaNovember,planDecember;
     private Button savePlanThree;
@@ -22,16 +26,6 @@ public class YearPlanMonthDetailThreeFragment extends Fragment {
     private String editDisabledText = "当前月份不能编辑计划";
 
     private  int curMonth,currDay;
-
-    //监听器
-    private MonthPlanEditCompletedListenerThree monthPlanEditCompletedListenerThree;
-    public MonthPlanEditCompletedListenerThree getMonthPlanEditCompletedListenerThree(){
-        return monthPlanEditCompletedListenerThree;
-    }
-    public void setMonthPlanEditCompletedListenerTwo(MonthPlanEditCompletedListenerThree monthPlanEditCompletedListenerThree){
-        this.monthPlanEditCompletedListenerThree = monthPlanEditCompletedListenerThree;
-    }
-
 
     public static YearPlanMonthDetailThreeFragment newInstance() {
         YearPlanMonthDetailThreeFragment fragment = new YearPlanMonthDetailThreeFragment();
@@ -78,6 +72,10 @@ public class YearPlanMonthDetailThreeFragment extends Fragment {
             plaNovember.setHint(editDisabledText);
             planDecember.setEnabled(false);
             planDecember.setHint(editDisabledText);
+
+            for (int i=8; i<12; i++){
+                YearPlanMakingActivity.monthEditable[i] = false;
+            }
         } else if (curMonth == 12 ){
             planSeptember.setEnabled(false);
             planSeptember.setHint(editDisabledText);
@@ -86,70 +84,74 @@ public class YearPlanMonthDetailThreeFragment extends Fragment {
             plaNovember.setEnabled(false);
             plaNovember.setHint(editDisabledText);
 
+            for (int i=8; i<11; i++){
+                YearPlanMakingActivity.monthEditable[i] = false;
+            }
+
             if (currDay > 5){
                 planDecember.setEnabled(false);
                 planDecember.setHint(editDisabledText);
+                YearPlanMakingActivity.monthEditable[11] = false;
             }
         } else if (curMonth == 11 ){
             planSeptember.setEnabled(false);
             planSeptember.setHint(editDisabledText);
             planOctober.setEnabled(false);
             planOctober.setHint(editDisabledText);
+            for (int i=8; i<10; i++){
+                YearPlanMakingActivity.monthEditable[i] = false;
+            }
+
             if (currDay > 5) {
                 plaNovember.setEnabled(false);
                 plaNovember.setHint(editDisabledText);
+                YearPlanMakingActivity.monthEditable[10] = false;
+
             }
         } else if (curMonth == 10){
             planSeptember.setEnabled(false);
             planSeptember.setHint(editDisabledText);
+            YearPlanMakingActivity.monthEditable[8] = false;
             if (currDay > 5) {
                 planOctober.setEnabled(false);
                 planOctober.setHint(editDisabledText);
+                YearPlanMakingActivity.monthEditable[9] = false;
             }
         } else if (curMonth == 9){
             if (currDay > 5) {
                 planSeptember.setEnabled(false);
                 planSeptember.setHint(editDisabledText);
+                YearPlanMakingActivity.monthEditable[8] = false;
             }
         }
         savePlanThree.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (monthPlanEditCompletedListenerThree != null) {
-                    if (curMonth >= 8) {
-                        monthPlanEditCompletedListenerThree.onCompleted("","","","");
-                    } else if (curMonth == 7){
-                        monthPlanEditCompletedListenerThree.onCompleted("","","",planDecember.getText().toString());
-                    } else if (curMonth == 6){
-                        monthPlanEditCompletedListenerThree.onCompleted("","",
-                                plaNovember.getText().toString(),planDecember.getText().toString());
-                    } else if (curMonth == 5){
-                        monthPlanEditCompletedListenerThree.onCompleted(planSeptember.getText().toString()
-                                ,planOctober.getText().toString(),
-                                plaNovember.getText().toString(),planDecember.getText().toString());
-                    }
-                }
+                YearPlanMakingActivity.isCurrPartPlanSaved[2] = true;
+
+                YearPlanMakingActivity.yearPlanMonthDetail[8] = planSeptember.getText().toString();
+                YearPlanMakingActivity.yearPlanMonthDetail[9] = planOctober.getText().toString();
+                YearPlanMakingActivity.yearPlanMonthDetail[10] = plaNovember.getText().toString();
+                YearPlanMakingActivity.yearPlanMonthDetail[11] = planDecember.getText().toString();
+
+                Log.d(TAG, "YearPlanMonthDetailThreeFragment_onSave,execute save operation");
             }
         });
 
     }
 
-    /**
-     * 当完成9-12月份计划编辑，点击ok按钮时，触发
-     *
-     * */
-    public interface MonthPlanEditCompletedListenerThree{
-        /**
-         * @param p9
-         *     5月份计划
-         * @param p10
-         *     6月份计划
-         * @param p11
-         *     7月份计划
-         * @param p12
-         *     8月份计划
-         * */
-        void onCompleted(String p9,String p10,String p11,String p12);
-    }
+    @Override
+    public void onStop() {
+        super.onStop();
+        if (YearPlanMakingActivity.isCurrPartPlanSaved[2]){
+            YearPlanMakingActivity.isCurrPartPlanSaved[2] = true;
 
+            YearPlanMakingActivity.yearPlanMonthDetail[8] = planSeptember.getText().toString();
+            YearPlanMakingActivity.yearPlanMonthDetail[9] = planOctober.getText().toString();
+            YearPlanMakingActivity.yearPlanMonthDetail[10] = plaNovember.getText().toString();
+            YearPlanMakingActivity.yearPlanMonthDetail[11] = planDecember.getText().toString();
+
+            Log.d(TAG, "YearPlanMonthDetailThreeFragment_onStop,execute save operation");
+        }
+    }
 }

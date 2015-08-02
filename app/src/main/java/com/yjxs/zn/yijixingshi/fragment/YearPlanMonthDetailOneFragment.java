@@ -20,6 +20,8 @@ import java.util.Calendar;
 
 public class YearPlanMonthDetailOneFragment extends Fragment {
 
+    public static String TAG = "YearPlanMonthDetailOneFragment";
+
     private EditText planJanuary,planFebruary,planMarch,planApril;
     private Button savePlanOne;
 
@@ -135,8 +137,27 @@ public class YearPlanMonthDetailOneFragment extends Fragment {
                 YearPlanMakingActivity.yearPlanMonthDetail[2] = planMarch.getText().toString();
                 YearPlanMakingActivity.yearPlanMonthDetail[3] = planApril.getText().toString();
 
+                Log.d(TAG, "YearPlanMonthDetailOneFragment_onSave,execute save operation");
+
             }
         });
     }
 
+    @Override
+    public void onStop() {
+        super.onStop();
+
+        if (!YearPlanMakingActivity.isCurrPartPlanSaved[0]) {
+            YearPlanMakingActivity.isCurrPartPlanSaved[0] = true;
+
+            YearPlanMakingActivity.yearPlanMonthDetail[0] = planJanuary.getText().toString();
+            YearPlanMakingActivity.yearPlanMonthDetail[1] = planFebruary.getText().toString();
+            YearPlanMakingActivity.yearPlanMonthDetail[2] = planMarch.getText().toString();
+            YearPlanMakingActivity.yearPlanMonthDetail[3] = planApril.getText().toString();
+
+            Log.d(TAG, "YearPlanMonthDetailOneFragment_onStop,execute save operation");
+        }
+
+
+    }
 }
