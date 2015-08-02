@@ -26,6 +26,18 @@ public class YearPlanMakingActivity extends BaseActivity {
 
     private FragmentManager fragmentManager;
     private FragmentTransaction fragmentTransaction;
+    /**
+     * 指示哪个月份可以编辑计划,默认都可以编辑
+     * */
+    public static boolean[] monthEditable = {true,true,true,true,true,true,true,true,true,true,true,true};
+    /**
+     * 保存年计划的详情，即每个月的计划内容
+     * */
+    public static String[] yearPlanMonthDetail = {"","","","","","","","","","","",""};
+    /**
+     * 年计划制定时分为三部分，4个月为一部分。判断每一部分的数据是否已经保存
+     * */
+    public static boolean[] isCurrPartPlanSaved = {false,false,false,false};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
