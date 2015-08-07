@@ -74,7 +74,23 @@ public class YearPlanMakingActivity extends BaseActivity {
                 }
 
                 // UI界面的更新等相关操作
+                try {
+                    JSONObject jsonResult = new JSONObject(val);
+                    if (jsonResult.getString("result").equals("success")) {
+                        Toast toast = CommonUtil.showToast(YearPlanMakingActivity.this, "保存成功!", true);
+                        toast.show();
 
+                    } else if (jsonResult.getString("result").equals("exists")) {
+                        Toast toast = CommonUtil.showToast(YearPlanMakingActivity.this, "年计划已存在！", false);
+                        toast.show();
+                    } else {
+                        Toast toast = CommonUtil.showToast(YearPlanMakingActivity.this, "保存失败", false);
+                        toast.show();
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
 
 
             }
@@ -192,7 +208,12 @@ public class YearPlanMakingActivity extends BaseActivity {
                         R.style.loading_dialog,getString(R.string.save_year_plan_detail));
                 dialog.show();
 
+                String userName = CommonUtil.ReadSharedPreferences(YearPlanMakingActivity.this,
+                        "login_user");
+
                 String planDetail = "";
+                planDetail += userName;
+                planDetail += ",";
                 planDetail += yearPlanTitle.getText().toString();
                 planDetail += ",";
                 planDetail += yearPlanContent.getText().toString();
