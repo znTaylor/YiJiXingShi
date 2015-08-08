@@ -83,8 +83,11 @@ public class YearPlanMakingActivity extends BaseActivity {
                     } else if (jsonResult.getString("result").equals("exists")) {
                         Toast toast = CommonUtil.showToast(YearPlanMakingActivity.this, "年计划已存在！", false);
                         toast.show();
-                    } else {
+                    } else if (jsonResult.getString("result").equals("failed")){
                         Toast toast = CommonUtil.showToast(YearPlanMakingActivity.this, "保存失败", false);
+                        toast.show();
+                    } else {
+                        Toast toast = CommonUtil.showToast(YearPlanMakingActivity.this, "未知错误", false);
                         toast.show();
                     }
 
@@ -222,7 +225,8 @@ public class YearPlanMakingActivity extends BaseActivity {
                     planDetail += yearPlanMonthDetail[i];
                     planDetail += ",";
                 }
-                planDetail.substring(0,planDetail.length()-1);
+                planDetail = planDetail.substring(0,planDetail.length()-1);
+                Log.d("YearPlanMakingActivity","planDetail:" + planDetail);
                 saveYearPlanDetail(planDetail);
 
             }
