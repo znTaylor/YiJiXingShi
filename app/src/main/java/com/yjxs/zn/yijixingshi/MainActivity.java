@@ -94,7 +94,7 @@ public class MainActivity extends BaseActivity{
                                 MainActivity.this.finish();
                                 break;
                             case 1:
-                                intent = new Intent(MainActivity.this,MonthPlanMakingActivity.class);
+                                intent = new Intent(MainActivity.this,MonthPlanInitActivity.class);
                                 planTypeDialog.dismiss();
                                 startActivity(intent);
                                 MainActivity.this.finish();

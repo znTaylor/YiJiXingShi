@@ -47,6 +47,10 @@
             android:name=".MonthPlanMakingActivity"
             android:label="@string/title_activity_month_plan_making" >
         </activity>
+        <activity
+            android:name=".MonthPlanInitActivity"
+            android:label="@string/title_activity_month_plan_init" >
+        </activity>
     </application>
 
 </manifest>
