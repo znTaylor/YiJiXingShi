@@ -12,13 +12,13 @@
         android:background="#6699ff"
         >
         <ImageView
-            android:id="@+id/year_plan_back"
+            android:id="@+id/month_plan_back"
             android:layout_width="50dp"
             android:layout_height="match_parent"
             android:background="@mipmap/back"
             android:layout_gravity="center_vertical"/>
         <TextView
-            android:id="@+id/text_year_plan"
+            android:id="@+id/text_month_plan"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
@@ -54,6 +54,7 @@
                 android:paddingRight="15dp"
                 />
             <TextView
+                android:id="@+id/curr_year_plan"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="7"
@@ -61,7 +62,8 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginRight="10dp"
-                android:layout_marginBottom="15dp"/>
+                android:layout_marginBottom="15dp"
+                android:gravity="center_vertical"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -80,6 +82,7 @@
                 android:paddingRight="15dp"
                 />
             <TextView
+                android:id="@+id/month_plan_title"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="7"
@@ -87,7 +90,8 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginRight="10dp"
-                android:layout_marginBottom="15dp"/>
+                android:layout_marginBottom="15dp"
+                android:gravity="center_vertical"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -106,6 +110,7 @@
                 android:paddingRight="15dp"
                 />
             <TextView
+                android:id="@+id/month_plan_content"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="7"
@@ -113,7 +118,8 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginRight="10dp"
-                android:layout_marginBottom="15dp"/>
+                android:layout_marginBottom="15dp"
+                android:gravity="center_vertical"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -132,6 +138,7 @@
                 android:paddingRight="15dp"
                 />
             <TextView
+                android:id="@+id/month_begin_end_date"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="7"
@@ -139,7 +146,8 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginRight="10dp"
-                android:layout_marginBottom="15dp"/>
+                android:layout_marginBottom="15dp"
+                android:gravity="center_vertical"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -158,6 +166,7 @@
                 android:paddingRight="15dp"
                 />
             <TextView
+                android:id="@+id/choose_month"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="7"
@@ -165,7 +174,9 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginRight="10dp"
-                android:layout_marginBottom="15dp"/>
+                android:layout_marginBottom="15dp"
+                android:text="点击选择月份"
+                android:gravity="center_vertical"/>
         </LinearLayout>
         <RelativeLayout
             android:layout_width="match_parent"
