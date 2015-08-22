@@ -185,7 +185,7 @@
             <Button
                 android:layout_width="200dp"
                 android:layout_height="60dp"
-                android:id="@+id/button_login"
+                android:id="@+id/button_make_month_plan"
                 android:background="@drawable/round_button_selector"
                 android:text="制定月计划>"
                 android:textColor="#ffffff"
