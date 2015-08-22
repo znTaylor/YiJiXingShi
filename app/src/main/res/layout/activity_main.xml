@@ -302,7 +302,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
                     <Button
-                        android:layout_width="150dp"
+                        android:layout_width="300dp"
                         android:layout_height="50dp"
                         android:id="@+id/button_show_plan"
                         android:background="@drawable/round_button_selector"
@@ -313,7 +313,7 @@
 
                         />
                     <Button
-                        android:layout_width="150dp"
+                        android:layout_width="300dp"
                         android:layout_height="50dp"
                         android:id="@+id/button_make_plan"
                         android:background="@drawable/round_button_selector"
