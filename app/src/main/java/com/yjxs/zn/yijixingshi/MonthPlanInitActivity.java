@@ -4,13 +4,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.yjxs.zn.yijixingshi.util.CommonUtil;
 import com.yjxs.zn.yijixingshi.util.HttpUtil;
@@ -108,7 +106,11 @@ public class MonthPlanInitActivity extends BaseActivity {
         makeMonthPlan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(MonthPlanInitActivity.this,MakeMonthPlanDetailActivity.class);
+                String whichMonth = monthToBePlaned.getText().toString();
+                intent.putExtra("monthToBePlaned",whichMonth);
+                startActivity(intent);
+                MonthPlanInitActivity.this.finish();
             }
         });
 
