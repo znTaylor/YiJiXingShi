@@ -35,7 +35,7 @@ public class MakeMonthPlanDetailActivity extends BaseActivity {
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
 
-            if (msg.what == 110) {
+            if (msg.what == 122) {
                 Bundle data = msg.getData();
                 String val = data.getString("result");
                 Log.i("MakeMonthPlanDetail", "请求结果为-->" + val);
