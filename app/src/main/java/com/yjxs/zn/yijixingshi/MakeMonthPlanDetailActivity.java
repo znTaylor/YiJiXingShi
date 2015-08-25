@@ -1,6 +1,7 @@
 package com.yjxs.zn.yijixingshi;
 
 import android.content.Intent;
+import android.media.Image;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.ActionBarActivity;
@@ -12,6 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,6 +30,7 @@ public class MakeMonthPlanDetailActivity extends BaseActivity {
     private TextView monthToBePlaned;
     private EditText planWeek1,planWeek2,planWeek3,planWeek4;
     private Button saveMonthPlanDetail;
+    private ImageView month_plan_back;
     LoadingDialog dialog;
 
     Handler handler = new Handler() {
@@ -135,6 +138,14 @@ public class MakeMonthPlanDetailActivity extends BaseActivity {
             }
         });
 
+        month_plan_back = (ImageView) this.findViewById(R.id.month_plan_back);
+        month_plan_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+
         if (intent.hasExtra("monthToBePlaned")){
             monthToBePlaned.setText(intent.getStringExtra("monthToBePlaned"));
         }
@@ -143,7 +154,7 @@ public class MakeMonthPlanDetailActivity extends BaseActivity {
 
 
     /**
-     * 保存年计划详细信息
+     * 保存月计划详细信息
      * */
     private void saveMonthPlanDetail(final String planDetail){
         Runnable networkTask = new Runnable() {
