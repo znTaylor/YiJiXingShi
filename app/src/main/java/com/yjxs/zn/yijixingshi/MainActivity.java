@@ -2,7 +2,6 @@ package com.yjxs.zn.yijixingshi;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
@@ -100,6 +99,10 @@ public class MainActivity extends BaseActivity{
                                 MainActivity.this.finish();
                                 break;
                             case 2:
+                                intent = new Intent(MainActivity.this,WeekPlanChooseMonthActivity.class);
+                                planTypeDialog.dismiss();
+                                startActivity(intent);
+                                MainActivity.this.finish();
                                 break;
                             case 3:
                                 break;

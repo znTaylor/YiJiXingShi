@@ -21,4 +21,5 @@
     <string name="title_activity_month_plan_init">MonthPlanInitActivity</string>
     <string name="title_activity_month_plan_choose_month">MonthPlanChooseMonthActivity</string>
     <string name="title_activity_make_month_plan_detail">MakeMonthPlanDetailActivity</string>
+    <string name="title_activity_week_plan_init">WeekPlanInitActivity</string>
 </resources>
