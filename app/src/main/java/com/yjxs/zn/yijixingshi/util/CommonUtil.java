@@ -56,4 +56,12 @@ public class CommonUtil {
         SharedPreferences preference = context.getSharedPreferences("yijixingshi", context.MODE_PRIVATE);
         return preference.getString(key, "");
     }
+
+    public static void Sleep(long miliSeconds){
+        try{
+            Thread.sleep(miliSeconds);
+        } catch(InterruptedException e){
+
+        }
+    }
 }
