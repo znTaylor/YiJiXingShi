@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 
@@ -74,12 +75,15 @@ public class WeekPlanChooseMonthActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_week_plan_choose_month);
+
+
+
         getYearPlanDetail();
     }
 
     private void initControls(){
 
-        monthsList = (ListView) this.findViewById(R.id.listview_12_months);
+        monthsList = (ListView) this.findViewById(R.id.weekplan_listview_12_months);
         MonthPlanDetailOfCurrYearAdapter adapter = new MonthPlanDetailOfCurrYearAdapter(
                 this,
                 R.layout.layout_month_list_item,
@@ -89,10 +93,10 @@ public class WeekPlanChooseMonthActivity extends BaseActivity {
         monthsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                //Intent intent = new Intent(WeekPlanChooseMonthActivity.this,WeekPlanInitActivity.class);
-                //intent.putExtra("whichMonth",(position+1));
-                //startActivity(intent);
-                //WeekPlanChooseMonthActivity.this.finish();
+//                Intent intent = new Intent(WeekPlanChooseMonthActivity.this,WeekPlanInitActivity.class);
+//                intent.putExtra("whichMonth",(position+1));
+//                startActivity(intent);
+//                WeekPlanChooseMonthActivity.this.finish();
             }
         });
 
