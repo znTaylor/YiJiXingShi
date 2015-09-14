@@ -93,10 +93,10 @@ public class WeekPlanChooseMonthActivity extends BaseActivity {
         monthsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                Intent intent = new Intent(WeekPlanChooseMonthActivity.this,WeekPlanInitActivity.class);
-//                intent.putExtra("whichMonth",(position+1));
-//                startActivity(intent);
-//                WeekPlanChooseMonthActivity.this.finish();
+                Intent intent = new Intent(WeekPlanChooseMonthActivity.this,WeekPlanInitActivity.class);
+                intent.putExtra("whichMonth",(position+1));
+                startActivity(intent);
+                WeekPlanChooseMonthActivity.this.finish();
             }
         });
 
