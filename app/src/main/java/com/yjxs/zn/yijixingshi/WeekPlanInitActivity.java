@@ -23,7 +23,6 @@ import java.util.List;
 public class WeekPlanInitActivity extends BaseActivity {
 
     private TextView currMonth;
-    private ListView weekListView;
     private ImageView back;
     private int currentMonth;
     private List<String> planList = new ArrayList<String>();
@@ -76,7 +75,6 @@ public class WeekPlanInitActivity extends BaseActivity {
     private void initControls(){
         currMonth = (TextView) findViewById(R.id.text_curr_month);
         currMonth.setText("当前月份：" + currentMonth);
-        weekListView = (ListView) findViewById(R.id.weekplan_listview_4_weeks);
         back = (ImageView) findViewById(R.id.week_plan_init_back);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
