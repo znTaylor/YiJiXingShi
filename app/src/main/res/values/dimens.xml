@@ -18,4 +18,5 @@
 
     <!--activity_main.xml-->
     <dimen name="activity_main_bottom_bar_textsize">8sp</dimen>
+    <dimen name="activity_main_back_marginleft">10dp</dimen>
 </resources>

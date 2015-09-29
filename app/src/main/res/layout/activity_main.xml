@@ -12,6 +12,22 @@
         android:background="@color/action_bar_background_green1"
         >
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/actionbar_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@mipmap/back"
+                android:layout_marginLeft="@dimen/activity_main_back_marginleft"
+                />
+            <TextView
+                android:id="@+id/actionbar_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"/>
+        </RelativeLayout>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -30,12 +46,14 @@
         >
 
         <LinearLayout
+            android:id="@+id/linear_bottom_home"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:orientation="vertical"
             android:gravity="center">
             <ImageView
+                android:id="@+id/img_bottom_home"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@mipmap/home_select"/>
@@ -48,12 +66,14 @@
 
         </LinearLayout>
         <LinearLayout
+            android:id="@+id/linear_bottom_plan"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:orientation="vertical"
             android:gravity="center">
             <ImageView
+                android:id="@+id/img_bottom_plan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@mipmap/my_plan"/>
@@ -66,6 +86,7 @@
 
         </LinearLayout>
         <LinearLayout
+            android:id="@+id/linear_bottom_me"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -73,6 +94,7 @@
             android:gravity="center">
 
             <ImageView
+                android:id="@+id/img_bottom_me"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@mipmap/me"/>
