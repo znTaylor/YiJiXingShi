@@ -1,5 +1,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     android:orientation="vertical">
@@ -7,334 +8,80 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="horizontal"
-        android:background="#6699ff"
+        android:layout_weight="0.9"
+        android:background="@color/action_bar_background_green1"
         >
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-        <TextView
-            android:id="@+id/show_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#ffffff"
-            android:text="欢迎："
-            android:gravity="center"
-            android:layout_alignParentLeft="true"
-            android:layout_centerInParent="true"
-            android:textSize="20sp"
-            android:paddingLeft="5dp"
-            android:textStyle="bold"/>
-        <TextView
-            android:id="@+id/show_user"
-            android:layout_toRightOf="@id/show_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#ffffff"
-            android:layout_centerInParent="true"
-            android:text="user"
-            android:textSize="18sp"
-            />
-        <Button
-            android:layout_width="100dp"
-            android:layout_height="45dp"
-            android:layout_alignParentRight="true"
-            android:layout_centerInParent="true"
-            android:id="@+id/button_loginout"
-            android:text="退出登录"
-            android:textSize="18sp"
-            android:textColor="#ffffff"
-            android:background="@drawable/round_button_normal"
-            />
-        </RelativeLayout>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="8"
+        >
+
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="9"
-        android:orientation="vertical"
-        android:background="#cccccc"
-        android:paddingTop="30dp"
-        android:paddingLeft="20dp"
+        android:layout_weight="1.1"
+        android:background="@color/bottom_bar_background_color"
+        android:orientation="horizontal"
         >
 
-        <RelativeLayout
-            android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="0dp"
             android:layout_height="match_parent"
-            >
-
-            <TextView
-                android:id="@+id/show_plan_title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="您没有正在进行的计划"
-                android:textColor="#ffffff"
-                android:textSize="18sp"/>
-            <TableLayout
-                android:id="@+id/table_plan"
-                android:layout_below="@id/show_plan_title"
-                android:layout_marginTop="35dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <TableRow>
-                    <TextView
-                        android:layout_height="wrap_content"
-                        android:layout_width="wrap_content"
-                        android:text="类型"
-                        />
-                    <TextView
-                        android:layout_height="wrap_content"
-                        android:layout_width="wrap_content"
-                        android:text="数量"
-                        android:layout_marginLeft="20dp"
-                    />
-                    <TextView
-                        android:layout_height="wrap_content"
-                        android:layout_width="wrap_content"
-                        android:text="未开始"
-                        android:layout_marginLeft="10dp"
-                        />
-                    <TextView
-                        android:layout_height="wrap_content"
-                        android:layout_width="wrap_content"
-                        android:text="进行中"
-                        android:layout_marginLeft="10dp"
-                        />
-                    <TextView
-                        android:layout_height="wrap_content"
-                        android:layout_width="wrap_content"
-                        android:text="已完成"
-                        android:layout_marginLeft="10dp"
-                        />
-                    <TextView
-                        android:layout_height="wrap_content"
-                        android:layout_width="wrap_content"
-                        android:text="已逾期"
-                        android:layout_marginLeft="10dp"
-                        />
-
-                </TableRow>
-
-                <TableRow android:layout_marginTop="25dp">
-                    <TextView
-                        android:layout_height="wrap_content"
-                        android:layout_width="wrap_content"
-                        android:text="年计划"
-                        />
-                    <TextView
-                        android:layout_height="wrap_content"
-                        android:layout_width="wrap_content"
-                        android:text="0"
-                        android:layout_marginLeft="20dp"
-                        android:gravity="center"
-                        />
-                    <TextView
-                        android:layout_height="wrap_content"
-                        android:layout_width="wrap_content"
-                        android:text="0"
-                        android:layout_marginLeft="10dp"
-                        android:gravity="center"
-                        />
-                    <TextView
-                        android:layout_height="wrap_content"
-                        android:layout_width="wrap_content"
-                        android:text="0"
-                        android:layout_marginLeft="10dp"
-                        android:gravity="center"
-                        />
-                    <TextView
-                        android:layout_height="wrap_content"
-                        android:layout_width="wrap_content"
-                        android:text="0"
-                        android:layout_marginLeft="10dp"
-                        android:gravity="center"
-                        />
-                    <TextView
-                        android:layout_height="wrap_content"
-                        android:layout_width="wrap_content"
-                        android:text="0"
-                        android:layout_marginLeft="10dp"
-                        android:gravity="center"
-                        />
-
-                </TableRow>
-                <TableRow android:layout_marginTop="20dp">
-                    <TextView
-                        android:layout_height="wrap_content"
-                        android:layout_width="wrap_content"
-                        android:text="月计划"
-                        />
-                    <TextView
-                        android:layout_height="wrap_content"
-                        android:layout_width="wrap_content"
-                        android:text="0"
-                        android:layout_marginLeft="20dp"
-                        android:gravity="center"
-                        />
-                    <TextView
-                        android:layout_height="wrap_content"
-                        android:layout_width="wrap_content"
-                        android:text="0"
-                        android:layout_marginLeft="10dp"
-                        android:gravity="center"
-                        />
-                    <TextView
-                        android:layout_height="wrap_content"
-                        android:layout_width="wrap_content"
-                        android:text="0"
-                        android:layout_marginLeft="10dp"
-                        android:gravity="center"
-                        />
-                    <TextView
-                        android:layout_height="wrap_content"
-                        android:layout_width="wrap_content"
-                        android:text="0"
-                        android:layout_marginLeft="10dp"
-                        android:gravity="center"
-                        />
-                    <TextView
-                        android:layout_height="wrap_content"
-                        android:layout_width="wrap_content"
-                        android:text="0"
-                        android:layout_marginLeft="10dp"
-                        android:gravity="center"
-                        />
-
-                </TableRow>
-                <TableRow android:layout_marginTop="20dp">
-                    <TextView
-                        android:layout_height="wrap_content"
-                        android:layout_width="wrap_content"
-                        android:text="周计划"
-                        />
-                    <TextView
-                        android:layout_height="wrap_content"
-                        android:layout_width="wrap_content"
-                        android:text="0"
-                        android:layout_marginLeft="20dp"
-                        android:gravity="center"
-                        />
-                    <TextView
-                        android:layout_height="wrap_content"
-                        android:layout_width="wrap_content"
-                        android:text="0"
-                        android:layout_marginLeft="10dp"
-                        android:gravity="center"
-                        />
-                    <TextView
-                        android:layout_height="wrap_content"
-                        android:layout_width="wrap_content"
-                        android:text="0"
-                        android:layout_marginLeft="10dp"
-                        android:gravity="center"
-                        />
-                    <TextView
-                        android:layout_height="wrap_content"
-                        android:layout_width="wrap_content"
-                        android:text="0"
-                        android:layout_marginLeft="10dp"
-                        android:gravity="center"
-                        />
-                    <TextView
-                        android:layout_height="wrap_content"
-                        android:layout_width="wrap_content"
-                        android:text="0"
-                        android:layout_marginLeft="10dp"
-                        android:gravity="center"
-                        />
-
-                </TableRow>
-                <TableRow android:layout_marginTop="20dp">
-                    <TextView
-                        android:layout_height="wrap_content"
-                        android:layout_width="wrap_content"
-                        android:text="自定义计划"
-                        />
-                    <TextView
-                        android:layout_height="wrap_content"
-                        android:layout_width="wrap_content"
-                        android:text="0"
-                        android:layout_marginLeft="20dp"
-                        android:gravity="center"
-                        />
-                    <TextView
-                        android:layout_height="wrap_content"
-                        android:layout_width="wrap_content"
-                        android:text="0"
-                        android:layout_marginLeft="10dp"
-                        android:gravity="center"
-                        />
-                    <TextView
-                        android:layout_height="wrap_content"
-                        android:layout_width="wrap_content"
-                        android:text="0"
-                        android:layout_marginLeft="10dp"
-                        android:gravity="center"
-                        />
-                    <TextView
-                        android:layout_height="wrap_content"
-                        android:layout_width="wrap_content"
-                        android:text="0"
-                        android:layout_marginLeft="10dp"
-                        android:gravity="center"
-                        />
-                    <TextView
-                        android:layout_height="wrap_content"
-                        android:layout_width="wrap_content"
-                        android:text="0"
-                        android:layout_marginLeft="10dp"
-                        android:gravity="center"
-                        />
-
-                </TableRow>
-            </TableLayout>
-            <LinearLayout
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+            <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_alignParentBottom="true"
-                android:layout_centerInParent="true"
-                >
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                    <Button
-                        android:layout_width="300dp"
-                        android:layout_height="50dp"
-                        android:id="@+id/button_show_plan"
-                        android:background="@drawable/round_button_selector"
-                        android:text="查看我的计划"
-                        android:textColor="#ffffff"
-                        android:textSize="18sp"
-                        android:layout_marginBottom="20dp"
+                android:background="@mipmap/home_select"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/activity_main_bottom_bar_home_text"
+                android:textSize="@dimen/activity_main_bottom_bar_textsize"
+                />
 
-                        />
-                    <Button
-                        android:layout_width="300dp"
-                        android:layout_height="50dp"
-                        android:id="@+id/button_make_plan"
-                        android:background="@drawable/round_button_selector"
-                        android:text="制定新的计划"
-                        android:textColor="#ffffff"
-                        android:textSize="18sp"
-                        android:layout_marginBottom="50dp"
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@mipmap/my_plan"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/activity_main_bottom_bar_plan_text"
+                android:textSize="@dimen/activity_main_bottom_bar_textsize"
+                />
 
-                        />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
 
-                </LinearLayout>
-
-
-            </LinearLayout>
-
-
-
-        </RelativeLayout>
-
-
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@mipmap/me"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/activity_main_bottom_bar_me_text"
+                android:textSize="@dimen/activity_main_bottom_bar_textsize"
+                />
+        </LinearLayout>
     </LinearLayout>
-
-
 </LinearLayout>

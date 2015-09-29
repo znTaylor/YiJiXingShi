@@ -6,4 +6,16 @@
     <!--actionBar-->
     <dimen name="action_bar_title_text_size">20sp</dimen>
     <dimen name="action_bar_back_imag_width">50dp</dimen>
+
+    <!--activity_check_login.xml-->
+    <dimen name="login_check_tip_text_size">20sp</dimen>
+    <dimen name="login_check_laba_marginleft">10dp</dimen>
+    <dimen name="login_check_tip_text_marginleft">20dp</dimen>
+    <dimen name="login_check_button_width">120dp</dimen>
+    <dimen name="login_check_button_height">40dp</dimen>
+    <dimen name="login_check_button_text_size">14sp</dimen>
+    <dimen name="login_check_button_margin_left_right">30sp</dimen>
+
+    <!--activity_main.xml-->
+    <dimen name="activity_main_bottom_bar_textsize">8sp</dimen>
 </resources>

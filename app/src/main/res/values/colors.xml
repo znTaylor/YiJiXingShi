@@ -6,6 +6,7 @@
     <!--actionBar的颜色-->
     <color name="action_bar_background_green1">#006633</color>
     <color name="action_bar_title_color_white">#ffffff</color>
+    <color name="bottom_bar_background_color">#cccccc</color>
 
     <!--按钮上文本的颜色-->
     <color name="button_text_color_green">#006633</color>
