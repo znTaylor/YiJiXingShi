@@ -23,7 +23,7 @@
             android:layout_height="match_parent"
             android:gravity="center"
             android:text="选择周"
-            android:textColor="@color/action_bar_title_color_white"
+            android:textColor="@color/action_bar_title_color"
             android:textSize="@dimen/action_bar_title_text_size"
             />
     </RelativeLayout>

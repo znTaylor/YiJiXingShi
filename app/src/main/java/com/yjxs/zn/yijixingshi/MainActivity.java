@@ -1,5 +1,8 @@
 package com.yjxs.zn.yijixingshi;
 
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -7,6 +10,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.yjxs.zn.yijixingshi.fragment.MainFragment;
 
 /**
  * 主界面
@@ -33,6 +38,7 @@ public class MainActivity extends BaseActivity{
 
         mMainActivity = this;
         mContext = this;
+        setCurrentFragment(MainFragment.getInstance());
         initControls();
 
     }
@@ -41,6 +47,9 @@ public class MainActivity extends BaseActivity{
      * 初始化控件
      * */
     private void initControls() {
+        txtActionBarTitle = (TextView) findViewById(R.id.actionbar_title);
+
+        setActionBarTitle(getString(R.string.activity_main_bottom_bar_home_text));
     }
 
 
@@ -51,6 +60,19 @@ public class MainActivity extends BaseActivity{
      * */
     public void setActionBarTitle(String s){
 
+        txtActionBarTitle.setText(s);
+    }
+
+    /**
+     * set current fragment in mainactivity
+     * @param fragment
+     *     要显示的fragment
+     * */
+    public void setCurrentFragment(Fragment fragment){
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.fragment_container,fragment);
+        fragmentTransaction.commit();
     }
 
 
