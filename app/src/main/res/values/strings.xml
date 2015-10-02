@@ -36,7 +36,7 @@
     <string name="my_plan_options_search_year_plan">查看年计划</string>
     <string name="my_plan_options_search_month_plan">查看月计划</string>
     <string name="my_plan_options_search_week_plan">查看周计划</string>
-    <string name="my_plan_options_search_custom_plan">查看自定义年计划</string>
+    <string name="my_plan_options_search_custom_plan">查看自定义计划</string>
     <string name="my_plan_options_search_completed_plan">已完成的计划</string>
     <string name="my_plan_options_search_ongoing_plan">正在进行的计划</string>
     <string name="my_plan_options_search_delayed_plan">延期的计划</string>

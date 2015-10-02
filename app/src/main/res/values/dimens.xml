@@ -20,5 +20,13 @@
     <dimen name="activity_main_bottom_bar_textsize">8sp</dimen>
     <dimen name="activity_main_back_marginleft">5dp</dimen>
 
-    <dimen name="circle_color_background_size">15dp</dimen>
+    <dimen name="circle_color_background_size">10dp</dimen>
+    
+    <!--fragment_my_plan.xml-->
+    <dimen name="my_plan_text_marginleft">15dp</dimen>
+    <dimen name="my_plan_getin_marginright">15dp</dimen>
+    <dimen name="my_plan_img_marginleft">15dp</dimen>
+    <dimen name="my_plan_option_margintop">5dp</dimen>
+    <dimen name="my_plan_option_paddingtop_down">10dp</dimen>
+    <dimen name="my_plan_getin_size">20dp</dimen>
 </resources>
