@@ -6,12 +6,15 @@ import android.app.FragmentTransaction;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.KeyEvent;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.yjxs.zn.yijixingshi.fragment.MainFragment;
+import com.yjxs.zn.yijixingshi.fragment.MeFragment;
+import com.yjxs.zn.yijixingshi.fragment.MyPlanFragment;
 
 /**
  * 主界面
@@ -48,6 +51,40 @@ public class MainActivity extends BaseActivity{
      * */
     private void initControls() {
         txtActionBarTitle = (TextView) findViewById(R.id.actionbar_title);
+        linearPlan = (LinearLayout) findViewById(R.id.linear_bottom_plan);
+        linearHome = (LinearLayout) findViewById(R.id.linear_bottom_home);
+        linearMe = (LinearLayout) findViewById(R.id.linear_bottom_me);
+
+        imgHome = (ImageView) findViewById(R.id.img_bottom_home);
+        imgPlan = (ImageView) findViewById(R.id.img_bottom_plan);
+        imgMe = (ImageView) findViewById(R.id.img_bottom_me);
+
+
+        linearHome.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                setCurrentFragment(MainFragment.getInstance());
+                setActionBarTitle(getString(R.string.activity_main_bottom_bar_home_text));
+                setBottomBarBackground(true,false,false);
+            }
+        });
+        linearPlan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setCurrentFragment(MyPlanFragment.getInstance());
+                setActionBarTitle(getString(R.string.activity_main_bottom_bar_plan_text));
+                setBottomBarBackground(false,true,false);
+            }
+        });
+
+        linearMe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setCurrentFragment(MeFragment.getInstance());
+                setActionBarTitle(getString(R.string.activity_main_bottom_bar_me_text));
+                setBottomBarBackground(false, false, true);
+            }
+        });
 
         setActionBarTitle(getString(R.string.activity_main_bottom_bar_home_text));
     }
@@ -64,6 +101,39 @@ public class MainActivity extends BaseActivity{
     }
 
     /**
+     * 设定底部导航的背景
+     * @param homeSelected
+     *     选中了Home
+     * @param planSelected
+     *     选中了 my plan
+     * @param meSelected
+     *     选中了me
+     * */
+    public void setBottomBarBackground(boolean homeSelected,boolean planSelected,boolean meSelected){
+        if (homeSelected){
+            imgHome.setBackgroundResource(R.mipmap.home_select);
+        }
+        else{
+            imgHome.setBackgroundResource(R.mipmap.home);
+        }
+
+        if (planSelected){
+            imgPlan.setBackgroundResource(R.mipmap.my_plan_select);
+        }
+        else{
+            imgPlan.setBackgroundResource(R.mipmap.my_plan);
+        }
+
+        if (meSelected){
+            imgMe.setBackgroundResource(R.mipmap.me_select);
+        }
+        else{
+            imgMe.setBackgroundResource(R.mipmap.me);
+        }
+
+    }
+
+    /**
      * set current fragment in mainactivity
      * @param fragment
      *     要显示的fragment
@@ -74,20 +144,6 @@ public class MainActivity extends BaseActivity{
         fragmentTransaction.replace(R.id.fragment_container,fragment);
         fragmentTransaction.commit();
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

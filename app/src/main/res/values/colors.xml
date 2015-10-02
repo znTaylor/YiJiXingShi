@@ -13,4 +13,6 @@
 
     <!--start.xml  系统启动界面-->
     <color name="start_background_color_green1">#006633</color>
+
+    <color name="circle_color_background">#006633</color>
 </resources>

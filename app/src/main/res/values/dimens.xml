@@ -19,4 +19,6 @@
     <!--activity_main.xml-->
     <dimen name="activity_main_bottom_bar_textsize">8sp</dimen>
     <dimen name="activity_main_back_marginleft">5dp</dimen>
+
+    <dimen name="circle_color_background_size">15dp</dimen>
 </resources>
