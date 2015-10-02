@@ -40,6 +40,7 @@
             android:textSize="@dimen/me_logout_textsize"/>
     </RelativeLayout>
     <RelativeLayout
+        android:id="@+id/layout_plan_reminder"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="@dimen/my_plan_option_paddingtop_down"
@@ -74,6 +75,7 @@
         android:layout_height="1dp"
         android:background="#cccccc"/>
     <RelativeLayout
+        android:id="@+id/layout_msg_push"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="@dimen/my_plan_option_paddingtop_down"
