@@ -52,7 +52,8 @@
     <string name="me_introduction">使用帮助</string>
     <string name="me_feedback">问题反馈</string>
 
-
+    <!--fragment_make_year_plan.xml-->
+    <string name="make_year_plan_save">保存</string>
 
 
 

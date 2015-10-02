@@ -1,0 +1,169 @@
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:textSize="@dimen/make_year_plan_textsize"
+    android:stretchColumns="1">
+    <TableRow>
+        <EditText
+            android:id="@+id/input_show"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:drawable/editbox_background"
+            android:layout_span="4"
+            android:textSize="@dimen/make_year_plan_textsize"
+            android:gravity="left|center_vertical"
+            android:lines="1"
+            android:paddingTop="@dimen/make_year_plan_input_paddingtop_bottom"
+            android:paddingBottom="@dimen/make_year_plan_input_paddingtop_bottom"/>
+    </TableRow>
+    <TableRow>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+            <Button
+                android:id="@+id/month1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/make_year_plan_month_text_size"
+                android:text="1"
+                android:layout_weight="1" />
+            <Button
+                android:id="@+id/month2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/make_year_plan_month_text_size"
+                android:text="2"
+                android:layout_weight="1" />
+            <Button android:id="@+id/month3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/make_year_plan_month_text_size"
+                android:text="3"
+                android:layout_weight="1" />
+            <Button android:id="@+id/clear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/make_year_plan_month_text_size"
+                android:text="AC"
+                android:layout_weight="1" />
+        </LinearLayout>
+    </TableRow>
+    <TableRow>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+            <Button
+                android:id="@+id/month4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/make_year_plan_month_text_size"
+                android:text="4"
+                android:layout_weight="1" />
+            <Button
+                android:id="@+id/month5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/make_year_plan_month_text_size"
+                android:text="5"
+                android:layout_weight="1" />
+            <Button
+                android:id="@+id/month6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/make_year_plan_month_text_size"
+                android:text="6"
+                android:layout_weight="1" />
+            <Button android:id="@+id/year_plan_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="42sp"
+                android:text="t"
+                android:layout_weight="1" />
+        </LinearLayout>
+    </TableRow>
+    <TableRow>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+            <Button
+                android:id="@+id/num7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/make_year_plan_month_text_size"
+                android:text="7"
+                android:layout_weight="1" />
+            <Button
+                android:id="@+id/num8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/make_year_plan_month_text_size"
+                android:text="8"
+                android:layout_weight="1" />
+            <Button
+                android:id="@+id/num9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/make_year_plan_month_text_size"
+                android:text="9"
+                android:layout_weight="1" />
+            <Button android:id="@+id/year_plan_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/make_year_plan_month_text_size"
+                android:text="c"
+                android:layout_weight="1" />
+        </LinearLayout>
+    </TableRow>
+    <TableRow>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+            <Button
+                android:id="@+id/num10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/make_year_plan_month_text_size"
+                android:text="10"
+                android:layout_weight="1" />
+            <Button
+                android:id="@+id/num11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/make_year_plan_month_text_size"
+                android:text="11"
+                android:layout_weight="1" />
+            <Button
+                android:id="@+id/month12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/make_year_plan_month_text_size"
+                android:text="12"
+                android:layout_weight="1" />
+            <Button
+                android:id="@+id/equal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/make_year_plan_month_text_size"
+                android:text="d"
+                android:layout_weight="1" />
+        </LinearLayout>
+    </TableRow>
+    <TableRow>
+        <Button
+            android:id="@+id/save"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/make_year_plan_save_text_size"
+            android:text="@string/make_year_plan_save"
+            android:layout_span="4"
+            android:gravity="center_vertical|center_horizontal"/>
+    </TableRow>
+</TableLayout>

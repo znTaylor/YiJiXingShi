@@ -43,4 +43,11 @@
     <dimen name="me_plan_reminder_img_size">30dp</dimen>
     <dimen name="me_switch_width">90dp</dimen>
     <dimen name="me_switch_height">30dp</dimen>
+
+    <!--fragment_make_year_plan.xml-->
+    <dimen name="make_year_plan_textsize">18sp</dimen>
+    <dimen name="make_year_plan_input_paddingtop_bottom">20dp</dimen>
+    <dimen name="make_year_plan_month_text_size">42sp</dimen>
+    <dimen name="make_year_plan_save_text_size">30sp</dimen>
+
 </resources>

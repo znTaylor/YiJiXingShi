@@ -39,11 +39,22 @@ public class MainActivity extends BaseActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mMainActivity = this;
         mContext = this;
+        //如果不加这句的话，从一个fragment跳转到另一个fragment时，会提示MainActivity已销毁
+        mMainActivity = this;
         setCurrentFragment(MainFragment.getInstance());
         initControls();
 
+    }
+
+    public static MainActivity getInstance(){
+        if (mMainActivity == null){
+            mMainActivity = new MainActivity();
+            return mMainActivity;
+        }
+        else{
+            return mMainActivity;
+        }
     }
 
     /**
