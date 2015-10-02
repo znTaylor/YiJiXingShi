@@ -17,4 +17,6 @@
     <color name="circle_color_background">#006633</color>
     <color name="circle_color_background_blue">#6699ff</color>
     <color name="circle_color_background_yellow">#cc9933</color>
+
+    <color name="me_user_text_color">#ffffff</color>
 </resources>

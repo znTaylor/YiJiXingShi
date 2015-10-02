@@ -44,10 +44,13 @@
     <string name="my_plan_options_system_grade">系统评价</string>
 
 
-
-
-
-
+    <!--fragment_me.xml-->
+    <string name="me_user_info">点击登录</string>
+    <string name="me_user_logout">注销</string>
+    <string name="me_plan_reminder">计划提醒</string>
+    <string name="me_message_push">消息推送</string>
+    <string name="me_introduction">使用帮助</string>
+    <string name="me_feedback">问题反馈</string>
 
 
 
