@@ -151,7 +151,7 @@
                 android:id="@+id/img_circle_background_5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/circle_color_background"
+                android:background="@drawable/circle_color_background_blue"
                 android:layout_marginLeft="@dimen/my_plan_img_marginleft"
                 android:layout_centerVertical="true"/>
             <TextView
@@ -184,7 +184,7 @@
                 android:id="@+id/img_circle_background_6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/circle_color_background"
+                android:background="@drawable/circle_color_background_blue"
                 android:layout_marginLeft="@dimen/my_plan_img_marginleft"
                 android:layout_centerVertical="true"/>
             <TextView
@@ -217,7 +217,7 @@
                 android:id="@+id/img_circle_background_7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/circle_color_background"
+                android:background="@drawable/circle_color_background_blue"
                 android:layout_marginLeft="@dimen/my_plan_img_marginleft"
                 android:layout_centerVertical="true"/>
             <TextView
@@ -250,7 +250,7 @@
                 android:id="@+id/img_circle_background_8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/circle_color_background"
+                android:background="@drawable/circle_color_background_blue"
                 android:layout_marginLeft="@dimen/my_plan_img_marginleft"
                 android:layout_centerVertical="true"/>
             <TextView
@@ -283,7 +283,7 @@
                 android:id="@+id/img_circle_background_9"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/circle_color_background"
+                android:background="@drawable/circle_color_background_blue"
                 android:layout_marginLeft="@dimen/my_plan_img_marginleft"
                 android:layout_centerVertical="true"/>
             <TextView
@@ -316,7 +316,7 @@
                 android:id="@+id/img_circle_background_10"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/circle_color_background"
+                android:background="@drawable/circle_color_background_blue"
                 android:layout_marginLeft="@dimen/my_plan_img_marginleft"
                 android:layout_centerVertical="true"/>
             <TextView
@@ -349,7 +349,7 @@
                 android:id="@+id/img_circle_background_11"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/circle_color_background"
+                android:background="@drawable/circle_color_background_blue"
                 android:layout_marginLeft="@dimen/my_plan_img_marginleft"
                 android:layout_centerVertical="true"/>
             <TextView
@@ -382,7 +382,7 @@
                 android:id="@+id/img_circle_background_12"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/circle_color_background"
+                android:background="@drawable/circle_color_background_yellow"
                 android:layout_marginLeft="@dimen/my_plan_img_marginleft"
                 android:layout_centerVertical="true"/>
             <TextView
