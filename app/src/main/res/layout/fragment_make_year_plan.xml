@@ -11,7 +11,8 @@
         android:gravity="left|center_vertical"
         android:lines="1"
         android:paddingTop="@dimen/make_year_plan_input_paddingtop_bottom"
-        android:paddingBottom="@dimen/make_year_plan_input_paddingtop_bottom"/>
+        android:paddingBottom="@dimen/make_year_plan_input_paddingtop_bottom"
+        android:focusable="true"/>
 
     <LinearLayout
         android:orientation="horizontal"
