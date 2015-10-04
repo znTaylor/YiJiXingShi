@@ -10,6 +10,8 @@ import android.widget.Toast;
 
 import com.yjxs.zn.yijixingshi.R;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -63,5 +65,24 @@ public class CommonUtil {
         } catch(InterruptedException e){
 
         }
+    }
+
+    /**
+     * 获取当前月份
+     * */
+    public static int getCurrentMonth(){
+        Calendar calendar = Calendar.getInstance();
+        int month = calendar.get(Calendar.MONTH);
+
+        return month + 1;
+    }
+
+    /**
+     * 获取当前是月份的哪一天
+     * */
+    public static int getCurrentDayOfMonth(){
+        Calendar calendar = Calendar.getInstance();
+        int currDay = calendar.get(Calendar.DAY_OF_MONTH);
+        return currDay;
     }
 }
