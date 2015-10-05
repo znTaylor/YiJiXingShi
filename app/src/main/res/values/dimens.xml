@@ -58,4 +58,13 @@
     <dimen name="make_year_plan_button_size2">130dp</dimen>
     <dimen name="make_year_plan_buttons_margion_top">30dp</dimen>
 
+    <!--layout_login.xml-->
+    <dimen name="login_parent_padding_top_left_right">50dp</dimen>
+    <dimen name="login_editbox_height">50dp</dimen>
+    <dimen name="login_user_margin_top">120dp</dimen>
+    <dimen name="login_passwd_margin_top">3dp</dimen>
+    <dimen name="login_login_height">50dp</dimen>
+    <dimen name="login_login_textsize">18sp</dimen>
+    <dimen name="login_button_margin_top">50dp</dimen>
+    <dimen name="login_fortet_register_margin">5dp</dimen>
 </resources>

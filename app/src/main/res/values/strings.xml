@@ -64,12 +64,10 @@
     <string name="make_year_plan_save">保存</string>
 
 
-
-
-
-
-
-
+    <!--layout_login.xml-->
+    <string name="login_button_text">登录</string>
+    <string name="login_forget_passwd">忘记密码</string>
+    <string name="login_register_user">注册用户</string>
 
 <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello me fragment</string>

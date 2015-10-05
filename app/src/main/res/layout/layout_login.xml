@@ -3,18 +3,18 @@
     android:layout_width="match_parent" android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@mipmap/register_bg"
-    android:paddingTop="50dp"
-    android:paddingLeft="50dp"
-    android:paddingRight="50dp"
-    android:paddingBottom="100dp">
+    android:paddingTop="@dimen/login_parent_padding_top_left_right"
+    android:paddingLeft="@dimen/login_parent_padding_top_left_right"
+    android:paddingRight="@dimen/login_parent_padding_top_left_right"
+    >
 
     <EditText
         android:id="@+id/user_name"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="120dp"
+        android:layout_height="@dimen/login_editbox_height"
+        android:layout_marginTop="@dimen/login_user_margin_top"
         android:background="@drawable/custom_editbox_style"
-        android:hint="用户名"
+        android:drawableLeft="@mipmap/user_account"
         />
 
 
@@ -22,26 +22,50 @@
     <EditText
         android:id="@+id/user_password"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="@dimen/login_editbox_height"
         android:background="@drawable/custom_editbox_style"
-        android:hint="密码"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="@dimen/login_passwd_margin_top"
+        android:drawableLeft="@mipmap/lock"
         />
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/login_button_margin_top">
         <Button
-            android:layout_width="200dp"
-            android:layout_height="60dp"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/login_login_height"
             android:id="@+id/button_login"
             android:background="@drawable/round_button_selector"
-            android:text="登录"
-            android:textColor="#ffffff"
-            android:textSize="24sp"
-            android:layout_alignParentBottom="true"
+            android:text="@string/login_button_text"
+            android:textColor="@color/button_text_color_green"
+            android:textSize="@dimen/login_login_textsize"
             android:layout_centerHorizontal="true"
             />
     </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/login_button_margin_top">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/login_forget_passwd"
+            android:layout_marginRight="@dimen/login_fortet_register_margin"
+            android:textColor="@color/button_text_color_green"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="|"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/login_register_user"
+            android:layout_marginLeft="@dimen/login_fortet_register_margin"
+            android:textColor="@color/button_text_color_green"/>
+    </LinearLayout>
 
 </LinearLayout>
