@@ -10,6 +10,7 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
@@ -17,6 +18,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.yjxs.zn.yijixingshi.MainActivity;
 import com.yjxs.zn.yijixingshi.R;
 import com.yjxs.zn.yijixingshi.util.CommonUtil;
 
@@ -30,16 +32,16 @@ public class MakeYearPlanFragment extends Fragment {
 
     //UI components
     EditText inputShow;
-    Button planTitle,planContent;
     int[] buttonIds = {R.id.month1,R.id.month2,R.id.month3,R.id.month4,R.id.month5,R.id.month6,
-        R.id.month7,R.id.month8,R.id.month9,R.id.month10,R.id.month11,R.id.month12};
+        R.id.month7,R.id.month8,R.id.month9,R.id.month10,R.id.month11,R.id.month12,
+            R.id.btn_plan_title,R.id.btn_plan_content};
     Button[] monthButton;
 
     //其它变量
     /**
-     * 保存年计划的详情，即每个月的计划内容
+     * 保存年计划的详情，即每个月的计划内容外加看计划title和content
      * */
-    private String[] yearPlanMonthDetail = {"","","","","","","","","","","",""};
+    private String[] yearPlanMonthDetail = {"","","","","","","","","","","","","",""};
 
     /**
      * 正在编辑的月份
@@ -49,7 +51,6 @@ public class MakeYearPlanFragment extends Fragment {
      * 已经编辑过的月份
      * */
     private int editedMonth;
-
 
     public MakeYearPlanFragment() {
         // Required empty public constructor
@@ -80,22 +81,8 @@ public class MakeYearPlanFragment extends Fragment {
      *     view
      * */
     private void init(View v){
-        planTitle = (Button) v.findViewById(R.id.btn_plan_title);
-        planContent = (Button) v.findViewById(R.id.btn_plan_content);
+        MainActivity.getInstance().setActionBarTitle(getString(R.string.my_plan_options_make_year_plan));
         inputShow = (EditText) v.findViewById(R.id.input_show);
-
-        planTitle.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-        planContent.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
 
         inputShow.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
@@ -106,11 +93,14 @@ public class MakeYearPlanFragment extends Fragment {
                 else {
                     Log.d(TAG, "INPUT COMPLETED");
                     yearPlanMonthDetail[editedMonth] = inputShow.getText().toString();
+
                     if (!TextUtils.isEmpty(inputShow.getText().toString())){
                         inputShow.setText(null);
                     }
                     else{
+
                         monthButton[editedMonth].setBackgroundResource(R.drawable.round_button_selector);
+
                     }
                 }
             }
@@ -150,7 +140,7 @@ public class MakeYearPlanFragment extends Fragment {
     private void getMonthsPlanedAbled(){
         int currMonth = CommonUtil.getCurrentMonth();
         Log.d(TAG, "CURR-MONTH:" + currMonth);
-        for (int i=0; i<buttonIds.length; i++){
+        for (int i=0; i<buttonIds.length-2; i++){
             if ((i+1)<currMonth)
                 continue;
 
@@ -161,13 +151,11 @@ public class MakeYearPlanFragment extends Fragment {
                 }
                 else{
                     monthButton[i].setEnabled(true);
-                   // monthButton[i].setBackgroundResource(R.drawable.round_button_selector2);
                     continue;
                 }
             }
 
             monthButton[i].setEnabled(true);
-           // monthButton[i].setBackgroundResource(R.drawable.round_button_selector2);
 
         }
     }
@@ -176,7 +164,7 @@ public class MakeYearPlanFragment extends Fragment {
      * 使所有的月份都不能编辑
      * */
     private void setAllMonthsDisabled(){
-        for (int i=0; i<monthButton.length; i++){
+        for (int i=0; i<monthButton.length-2; i++){
             monthButton[i].setEnabled(false);
         }
     }
