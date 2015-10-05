@@ -1,10 +1,12 @@
 package com.yjxs.zn.yijixingshi;
 
+import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Context;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageView;
@@ -12,6 +14,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.yjxs.zn.yijixingshi.fragment.LoginFragment;
 import com.yjxs.zn.yijixingshi.fragment.MainFragment;
 import com.yjxs.zn.yijixingshi.fragment.MeFragment;
 import com.yjxs.zn.yijixingshi.fragment.MyPlanFragment;
@@ -32,6 +35,7 @@ public class MainActivity extends BaseActivity{
     ImageView imgHome,imgPlan,imgMe;
     ImageView imgBack;
     TextView txtActionBarTitle;
+    AlertDialog loginDialog = null;
 
 
     @Override
@@ -44,6 +48,7 @@ public class MainActivity extends BaseActivity{
         mMainActivity = this;
         setCurrentFragment(MainFragment.getInstance());
         initControls();
+        checkLogin();
 
     }
 
@@ -156,7 +161,18 @@ public class MainActivity extends BaseActivity{
         fragmentTransaction.commit();
     }
 
+    /**
+     * 检查用户是否已经登录
+     * */
+    public void checkLogin(){
+        if (YiJiXingShiApp.isUserLogin){
 
+        }
+        else{
+            //进入登录fragment
+            setCurrentFragment(LoginFragment.getInstence());
+        }
+    }
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {

@@ -15,6 +15,14 @@
     <string name="title_activity_year_plan_making">YearPlanMakingActivity</string>
     <string name="save_year_plan_detail">正在保存年计划...</string>
 
+    <string name="save_year_plan_check_title_empty">请输入年计划标题</string>
+    <string name="save_year_plan_check_content_empty">请输入年计划内容</string>
+    <string name="save_year_plan_check_month_empty">某些月份没有制定计划</string>
+
+    <string name="save_year_plan_success">保存成功！</string>
+    <string name="save_year_plan_fail">保存失败！</string>
+    <string name="save_year_plan_repeat">年计划重复!</string>
+    <string name="save_year_plan_unknown_error">未知错误！</string>
 
     <!--activity_check_login.xml-->
     <string name="login_check_button_login_text">登录</string>
@@ -54,6 +62,11 @@
 
     <!--fragment_make_year_plan.xml-->
     <string name="make_year_plan_save">保存</string>
+
+
+
+
+
 
 
 

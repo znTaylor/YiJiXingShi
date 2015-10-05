@@ -1,26 +1,27 @@
 package com.yjxs.zn.yijixingshi.fragment;
 
 
-import android.content.Context;
-import android.os.Bundle;
 import android.app.Fragment;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.text.TextUtils;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
-import android.view.inputmethod.EditorInfo;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.yjxs.zn.yijixingshi.MainActivity;
 import com.yjxs.zn.yijixingshi.R;
 import com.yjxs.zn.yijixingshi.util.CommonUtil;
+import com.yjxs.zn.yijixingshi.util.HttpUtil;
+import com.yjxs.zn.yijixingshi.view.LoadingDialog;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 /**
  * make year plan fragment.
@@ -36,6 +37,7 @@ public class MakeYearPlanFragment extends Fragment {
         R.id.month7,R.id.month8,R.id.month9,R.id.month10,R.id.month11,R.id.month12,
             R.id.btn_plan_title,R.id.btn_plan_content};
     Button[] monthButton;
+    Button saveYearPlan;
 
     //其它变量
     /**
@@ -51,6 +53,53 @@ public class MakeYearPlanFragment extends Fragment {
      * 已经编辑过的月份
      * */
     private int editedMonth;
+    LoadingDialog dialog;
+
+    Handler handler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+
+            if (msg.what == 110) {
+                Bundle data = msg.getData();
+                String val = data.getString("result");
+                Log.i("YearPlanMakingActivity", "请求结果为-->" + val);
+
+                dialog.dismiss();
+
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
+                // UI界面的更新等相关操作
+                try {
+                    JSONObject jsonResult = new JSONObject(val);
+                    if (jsonResult.getString("result").equals("success")) {
+                        Toast toast = CommonUtil.showToast(getActivity(), getString(R.string.save_year_plan_success), true);
+                        toast.show();
+
+                    } else if (jsonResult.getString("result").equals("exists")) {
+                        Toast toast = CommonUtil.showToast(getActivity(), getString(R.string.save_year_plan_repeat), false);
+                        toast.show();
+                    } else if (jsonResult.getString("result").equals("failed")){
+                        Toast toast = CommonUtil.showToast(getActivity(), getString(R.string.save_year_plan_fail), false);
+                        toast.show();
+                    } else {
+                        Toast toast = CommonUtil.showToast(getActivity(), getString(R.string.save_year_plan_unknown_error), false);
+                        toast.show();
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+
+            }
+        }
+    };
+
 
     public MakeYearPlanFragment() {
         // Required empty public constructor
@@ -83,6 +132,7 @@ public class MakeYearPlanFragment extends Fragment {
     private void init(View v){
         MainActivity.getInstance().setActionBarTitle(getString(R.string.my_plan_options_make_year_plan));
         inputShow = (EditText) v.findViewById(R.id.input_show);
+        saveYearPlan = (Button) v.findViewById(R.id.save);
 
         inputShow.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
@@ -125,6 +175,17 @@ public class MakeYearPlanFragment extends Fragment {
                 }
             });
         }
+
+        saveYearPlan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //验证计划内容
+                validateYearPlanDetail();
+                //验证通过后保存
+                saveYearPlanDetail(formatPlanDetail());
+
+            }
+        });
 
         setAllMonthsDisabled();
         getMonthsPlanedAbled();
@@ -174,6 +235,88 @@ public class MakeYearPlanFragment extends Fragment {
      * */
     private String getSingleMonthPlan(int month){
         return yearPlanMonthDetail[month];
+    }
+
+    /**
+     * 保存前检查年计划详情
+     * */
+    private void validateYearPlanDetail(){
+        if (TextUtils.isEmpty(getSingleMonthPlan(12))){ //title
+            Toast toast = CommonUtil.showToast(getActivity(),
+                    getString(R.string.save_year_plan_check_title_empty),
+                    false);
+            toast.show();
+            return;
+        }
+        if (TextUtils.isEmpty(getSingleMonthPlan(13))){//content
+            Toast toast = CommonUtil.showToast(getActivity(),
+                    getString(R.string.save_year_plan_check_content_empty),
+                    false);
+            toast.show();
+            return;
+        }
+
+        int enabledMonth = 0;
+        for (int i=0; i<monthButton.length-2; i++){
+            if (monthButton[i].isEnabled()){
+                enabledMonth = i;
+                break;
+            }
+        }
+        for (int i=enabledMonth; i<yearPlanMonthDetail.length-2; i++){
+            if (TextUtils.isEmpty(yearPlanMonthDetail[i])){
+                Toast toast = CommonUtil.showToast(getActivity(),
+                        getString(R.string.save_year_plan_check_month_empty),
+                        false);
+                toast.show();
+                return;
+            }
+        }
+
+    }
+
+    /**
+     * 格式化计划详情
+     * */
+    private String formatPlanDetail(){
+        String s = "";
+        s += yearPlanMonthDetail[12];
+        s += ",";
+        s += yearPlanMonthDetail[13];
+        s += ",";
+        for (int i=0; i<yearPlanMonthDetail.length-2; i++){
+            s += yearPlanMonthDetail[i];
+            s += ",";
+        }
+
+
+        return s.substring(0,s.length()-1);
+    }
+
+    /**
+     * 保存年计划详细信息
+     * */
+    private void saveYearPlanDetail(final String planDetail){
+        Runnable networkTask = new Runnable() {
+            @Override
+            public void run() {
+                String strUrl = "http://120.27.46.194/ZnConsole/business/save_year_plan.php";
+                String params = "yearPlan=" + planDetail;
+
+                String response = HttpUtil.sendHttpPost(strUrl, params);
+
+                Message msg = new Message();
+                msg.what = 110;
+                Bundle data = new Bundle();
+                data.putString("result", response);
+                msg.setData(data);
+                handler.sendMessage(msg);
+
+
+            }
+        };
+
+        new Thread(networkTask).start();
     }
 
 }
