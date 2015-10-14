@@ -71,6 +71,8 @@ public class LoginFragment extends Fragment {
                         CommonUtil.WriteSharedPreferences(mContext,
                                 "login_user", strUserName);
                         CommonUtil.WriteSharedPreferences(mContext,
+                                "login_passwd",strPassword);
+                        CommonUtil.WriteSharedPreferences(mContext,
                                 "is_login", "yes");
                         YiJiXingShiApp.isUserLogin = true;
                         YiJiXingShiApp.currUser = strUserName;
@@ -115,6 +117,7 @@ public class LoginFragment extends Fragment {
         mContext = LoginFragment.this.getActivity();
         init(view);
         MainActivity.getInstance().setActionBarTitle(getString(R.string.login_button_text));
+        autoLogin();
         return view;
     }
 
@@ -196,6 +199,25 @@ public class LoginFragment extends Fragment {
         };
 
         new Thread(networkTask).start();
+    }
+
+    /**
+     * auto login
+     * */
+    private void autoLogin(){
+        String isLogin = CommonUtil.ReadSharedPreferences(mContext,"is_login");
+        if (TextUtils.isEmpty(isLogin)){
+
+        }
+        else{
+            if ("yes".equals(isLogin)){
+                //加载默认frgment
+                MainActivity.getInstance().setCurrentFragment(MainFragment.getInstance());
+                YiJiXingShiApp.isUserLogin = true;
+                YiJiXingShiApp.currUser = CommonUtil.ReadSharedPreferences(mContext,"login_user");
+
+            }
+        }
     }
 
 
