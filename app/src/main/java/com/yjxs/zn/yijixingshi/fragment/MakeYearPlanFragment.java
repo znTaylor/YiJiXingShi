@@ -63,7 +63,7 @@ public class MakeYearPlanFragment extends Fragment {
             if (msg.what == 110) {
                 Bundle data = msg.getData();
                 String val = data.getString("result");
-                Log.i("YearPlanMakingActivity", "请求结果为-->" + val);
+                Log.i("YearPlanMaking", "请求结果为-->" + val);
 
                 dialog.dismiss();
 
@@ -179,8 +179,11 @@ public class MakeYearPlanFragment extends Fragment {
         saveYearPlan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                dialog = new LoadingDialog(MakeYearPlanFragment.this.getActivity(),
+                        R.style.loading_dialog,getString(R.string.save_year_plan_detail));
+                dialog.show();
                 //验证计划内容
-                validateYearPlanDetail();
+               // validateYearPlanDetail();
                 //验证通过后保存
                 saveYearPlanDetail(formatPlanDetail());
 
@@ -259,7 +262,7 @@ public class MakeYearPlanFragment extends Fragment {
         int enabledMonth = 0;
         for (int i=0; i<monthButton.length-2; i++){
             if (monthButton[i].isEnabled()){
-                enabledMonth = i;
+                enabledMonth = (i+1);
                 break;
             }
         }

@@ -10,6 +10,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 import com.yjxs.zn.yijixingshi.R;
+import com.yjxs.zn.yijixingshi.util.Constants;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -40,7 +41,7 @@ public class MainFragment extends Fragment {
         View v =  inflater.inflate(R.layout.fragment_main, container, false);
 
         webView = (WebView) v.findViewById(R.id.webView);
-        webView.loadUrl("http://www.baidu.com");
+        webView.loadUrl("http://www/baidu.com");
         webView.setWebViewClient(new WebViewClient() {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {

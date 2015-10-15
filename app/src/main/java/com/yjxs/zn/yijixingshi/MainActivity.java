@@ -6,6 +6,9 @@ import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.View;
@@ -18,6 +21,12 @@ import com.yjxs.zn.yijixingshi.fragment.LoginFragment;
 import com.yjxs.zn.yijixingshi.fragment.MainFragment;
 import com.yjxs.zn.yijixingshi.fragment.MeFragment;
 import com.yjxs.zn.yijixingshi.fragment.MyPlanFragment;
+import com.yjxs.zn.yijixingshi.util.CommonUtil;
+import com.yjxs.zn.yijixingshi.util.Constants;
+import com.yjxs.zn.yijixingshi.util.HttpUtil;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 /**
  * 主界面
@@ -36,6 +45,50 @@ public class MainActivity extends BaseActivity{
     ImageView imgBack;
     TextView txtActionBarTitle;
     AlertDialog loginDialog = null;
+
+    Handler handler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+
+            if (msg.what == Constants.MESSAGE_HANDLER_WHAT_LOGIN) {
+                Bundle data = msg.getData();
+                String val = data.getString("result");
+                Log.i("LoginActivity", "请求结果为-->" + val);
+
+                CommonUtil.Sleep(1000);
+
+                // UI界面的更新等相关操作
+                try {
+                    JSONObject jsonResult = new JSONObject(val);
+                    if (jsonResult.getString("result").equals("success")) {
+                        Toast toast = CommonUtil.showToast(mContext, getString(R.string.login_success), true);
+                        toast.show();
+
+                        YiJiXingShiApp.isUserLogin = true;
+                        YiJiXingShiApp.currUser = CommonUtil.ReadSharedPreferences(mContext,"login_user");
+
+                        //加载默认frgment
+                        MainActivity.getInstance().setCurrentFragment(MainFragment.getInstance());
+
+                    } else if (jsonResult.getString("result").equals("wrong user")) {
+                        Toast toast = CommonUtil.showToast(mContext, getString(R.string.login_user_or_passwd_error),
+                                false);
+                        toast.show();
+                    } else {
+                        Toast toast = CommonUtil.showToast(mContext, jsonResult.getString("result"), false);
+                        toast.show();
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+
+            }
+        }
+    };
+
 
 
     @Override
@@ -165,13 +218,42 @@ public class MainActivity extends BaseActivity{
      * 检查用户是否已经登录
      * */
     public void checkLogin(){
-        if (YiJiXingShiApp.isUserLogin){
-
+        String isLogin = CommonUtil.ReadSharedPreferences(mContext, "is_login");
+        if (isLogin.equals("yes")){
+            String user = CommonUtil.ReadSharedPreferences(mContext,"login_user");
+            String pass = CommonUtil.ReadSharedPreferences(mContext,"login_passwd");
+            autoLogin(user,pass);
         }
         else{
             //进入登录fragment
             setCurrentFragment(LoginFragment.getInstence());
         }
+    }
+
+    /**
+     * auto login
+     * */
+    private void autoLogin(final String user,final String pass){
+        Runnable networkTask = new Runnable() {
+            @Override
+            public void run() {
+                String strUrl = Constants.HTTP_REQUEST_PATH_BUSINESS + "login_check.php";
+                String params = "username=" + user;
+                params += "&password=" + pass;
+                String response = HttpUtil.sendHttpPost(strUrl, params);
+
+                Message msg = new Message();
+                msg.what = Constants.MESSAGE_HANDLER_WHAT_LOGIN;
+                Bundle data = new Bundle();
+                data.putString("result", response);
+                msg.setData(data);
+                handler.sendMessage(msg);
+
+
+            }
+        };
+
+        new Thread(networkTask).start();
     }
 
     @Override
